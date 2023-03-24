@@ -1,0 +1,20 @@
+.secondMenuBox {
+    background-color: #ede6db;
+}
+.secondMenuInBox {
+    display: flex;
+}
+.secondMenuTitle {
+    margin: 25px 0;
+    padding: 15px 31px;
+    border-right: 3px solid #baa89a;
+}
+.seconMenuSecondTitle {
+    margin: auto 31px;
+}
+.selectName {
+    cursor: pointer;
+}
+.none {
+    display: none;
+}

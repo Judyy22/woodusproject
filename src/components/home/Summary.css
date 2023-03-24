@@ -1,0 +1,32 @@
+.summaryBox {
+    background-color: #faf7f2;
+}
+.summaryInBox {
+    display: flex;
+    padding: 0;
+}
+.summaryAboutBox {
+    background-color: #ede6db;
+}
+.summaryAbout {
+    font-size: 20px;
+    margin-top: 90px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+.summaryAbout:after {
+    content: "";
+    position: absolute;
+    left: 40%;
+    bottom: 0;
+    height: 3px;
+    width: 20%;
+    border-bottom: 4px solid #baa89a;
+}
+.summaryContents {
+    margin: 49px 63px;
+}
+.summaryContents div:nth-child(2) {
+    padding: 20px 0;
+}
