@@ -1,4 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Container } from "react-bootstrap";
+import LocationInfo from "./LocationInfo";
+import "./Map.css";
+
 const { kakao } = window;
 const Map = () => {
     useEffect(() => {
@@ -19,7 +23,14 @@ const Map = () => {
         // 마커를 지도 위에 표시
         marker.setMap(map);
     }, []);
-    return <div id="map" style={{ width: "80%", height: "500px" }} />;
+    return (
+        <div className="mapBox">
+            <Container>
+                <div id="map" />
+                <LocationInfo />
+            </Container>
+        </div>
+    );
 };
 
 export default Map;

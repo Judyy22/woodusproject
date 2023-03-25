@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Menubar from "../../components/Menubar";
+import Footer from "../../components/Footer";
 import Secondmenu from "../../components/Secondmenu";
 import Map from "../../components/woodus/Map";
 
@@ -13,6 +14,7 @@ const Location = () => {
             <Menubar />
             <Secondmenu list={List} now={now} />
             <Map />
+            <Footer />
         </div>
     );
 };
