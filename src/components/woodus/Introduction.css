@@ -4,13 +4,14 @@
 }
 .IntoductionTitle div:first-child {
     font-size: 36px;
+    padding-top: 20px;
     margin-bottom: 5px;
 }
 .IntoductionTitle div:nth-child(2) {
     font-size: 24px;
 }
 .IntroductionContents {
-    margin-top: 50px;
+    margin-top: 30px;
     line-height: 2.3;
     width: 80%;
     font-size: 16px;

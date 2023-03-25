@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Menubar.css";
 
@@ -81,61 +82,72 @@ const Menubar = () => {
 
     return (
         <div className="menubarBox">
-            <div className="menubarContentsBox">
-                <div className="logo">
-                    <Link to="/">
-                        <img src="/pictures/woodus-logo.png" width="100px" />
-                    </Link>
-                </div>
-                <div className="menubarContents">
-                    <ul className="menu">
-                        {menuList.map((menu) => (
-                            <li
-                                key={menu.id}
-                                className={`menu-item ${
-                                    activeMenu === menu.id ? "active" : ""
-                                }`}
-                                onClick={() => handleMenuClick(menu)}
-                            >
-                                {menu.name}
-                                {activeMenu === menu.id && (
-                                    <div className="dropdown" ref={dropdownRef}>
-                                        {menu.dropdown.map((dropdown) => (
-                                            <div
-                                                key={dropdown.id}
-                                                className={`dropdown-item ${
-                                                    activeDropdown ===
-                                                    dropdown.id
-                                                        ? "active"
-                                                        : ""
-                                                }`}
-                                                onClick={() =>
-                                                    handleDropdownClick(
-                                                        dropdown
-                                                    )
-                                                }
-                                            >
-                                                <Link
-                                                    to={{
-                                                        pathname: dropdown.link,
-                                                    }}
-                                                    state={{
-                                                        data: menu,
-                                                        select: dropdown.id,
-                                                    }}
-                                                    className="linktag"
+            <Container>
+                <div className="menubarContentsBox">
+                    <div className="logo">
+                        <Link to="/">
+                            <img
+                                src="/pictures/woodus-logo.png"
+                                width="100px"
+                            />
+                        </Link>
+                    </div>
+                    <div className="menubarContents">
+                        <ul className="menu">
+                            {menuList.map((menu) => (
+                                <li
+                                    key={menu.id}
+                                    className={`menu-item ${
+                                        activeMenu === menu.id ? "active" : ""
+                                    }`}
+                                    onClick={() => handleMenuClick(menu)}
+                                >
+                                    {menu.name}
+                                    {activeMenu === menu.id && (
+                                        <div
+                                            className="dropdown"
+                                            ref={dropdownRef}
+                                        >
+                                            {menu.dropdown.map((dropdown) => (
+                                                <div
+                                                    key={dropdown.id}
+                                                    className={`dropdown-item ${
+                                                        activeDropdown ===
+                                                        dropdown.id
+                                                            ? "active"
+                                                            : ""
+                                                    }`}
+                                                    onClick={() =>
+                                                        handleDropdownClick(
+                                                            dropdown
+                                                        )
+                                                    }
                                                 >
-                                                    <div>{dropdown.name}</div>
-                                                </Link>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
+                                                    <Link
+                                                        to={{
+                                                            pathname:
+                                                                dropdown.link,
+                                                        }}
+                                                        state={{
+                                                            data: menu,
+                                                            select: dropdown.id,
+                                                        }}
+                                                        className="linktag"
+                                                    >
+                                                        <div>
+                                                            {dropdown.name}
+                                                        </div>
+                                                    </Link>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </Container>
         </div>
     );
 };
