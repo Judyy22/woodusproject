@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import "./Introduction.css";
 
 const Introduction = () => {
+    const [opacity, setOpacity] = useState(0);
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setOpacity(1);
+        }, 100); // 0.1초 후 opacity를 1로 변경
+
+        return () => {
+            clearTimeout(timeoutId);
+        };
+    }, []);
+
     return (
         <div className="IntroductionBox">
-            <Container>
+            <Container style={{ opacity, transition: "opacity 0.5s ease-in" }}>
                 <div className="IntoductionTitle">
                     <div>우드어스 사회적 협동조합 소개</div>
                     <div>Introduction of WOODUS social coop.</div>

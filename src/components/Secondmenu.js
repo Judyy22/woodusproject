@@ -1,3 +1,5 @@
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -51,6 +53,9 @@ const Secondmenu = (props) => {
                         onClick={clickList}
                     >
                         {nowSelect.name}
+                        <div>
+                            <FontAwesomeIcon icon={faAngleDown} />
+                        </div>
                     </div>
                     <ul
                         className={

@@ -1,5 +1,8 @@
 .footerBox {
     background-color: #baa89a;
+    /* position: fixed;
+    bottom: 0; */
+    width: 100%;
 }
 .footerInBox {
     padding: 30px 0 50px 0;

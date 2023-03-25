@@ -14,14 +14,18 @@
     position: relative;
 }
 .selectName {
-    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+.selectName > div {
+    margin-left: 10px;
 }
 .secondMenulistbox {
     position: absolute;
     top: 100%;
     left: 0;
-    width: max-content;
-    max-width: calc(1.8 * max-content);
+    /* width: max-content; */
+    width: 150px;
     background-color: #ede6db;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
     padding: 10px;
