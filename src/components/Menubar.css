@@ -50,7 +50,8 @@ li {
     cursor: pointer;
 }
 
-.menu-item.active {
+.menu-item.active,
+.menu-item:hover {
     color: white;
 }
 
