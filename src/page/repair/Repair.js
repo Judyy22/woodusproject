@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import Menubar from "../../components/Menubar";
 import Secondmenu from "../../components/Secondmenu";
 import RepairMain from "../../components/repair/RepairMain";
+import Footer from "../../components/Footer";
 
 const Repair = () => {
     const location = useLocation();
@@ -14,6 +15,7 @@ const Repair = () => {
             <Menubar />
             <Secondmenu list={List} now={now} />
             <RepairMain />
+            <Footer />
         </div>
     );
 };
