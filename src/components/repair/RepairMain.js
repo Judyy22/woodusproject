@@ -45,7 +45,8 @@ const RepairMain = () => {
                             <div>수리내용</div>
                             <div className="RepairList">
                                 <div>
-                                    - 의자시트 교환 &#40;천 &rarr;가죽 &#41;
+                                    - 의자시트 교환 &#40; 패브릭 &rarr;가죽
+                                    &#41;
                                 </div>
                                 <div>- 의자 다리 페인팅 보수</div>
                             </div>

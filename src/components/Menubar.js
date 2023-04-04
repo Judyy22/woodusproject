@@ -25,19 +25,16 @@ const Menubar = () => {
         },
         {
             id: 3,
-            name: "교육과정",
+            name: "프로그램",
             dropdown: [
                 { id: 1, name: "모집중", link: "/class" },
-                { id: 2, name: "진행종료", link: "/class/end" },
+                { id: 2, name: "모집종료", link: "/class/end" },
             ],
         },
         {
             id: 4,
-            name: "수강신청",
-            dropdown: [
-                { id: 1, name: "온라인 신청", link: "/enroll" },
-                { id: 2, name: "신청상태 확인", link: "/enroll/state" },
-            ],
+            name: "기업사회공헌",
+            dropdown: [],
         },
         {
             id: 5,
