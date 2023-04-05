@@ -11,7 +11,6 @@ const Category = () => {
                     <div className="categoryCard">
                         <img
                             src="/pictures/first.png"
-                            width="330px"
                             className="categoryImage"
                         />
                         <div className="categoryContents">

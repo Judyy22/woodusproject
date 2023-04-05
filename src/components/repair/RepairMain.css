@@ -4,12 +4,12 @@
 }
 .RepairWord {
     text-align: center;
-    margin: 20px;
-    font-size: 2rem;
+    margin: 30px;
+    font-size: 2.3rem;
 }
 .RepairInfo {
     padding: 0 20px;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
 }
 .RepairInfo > div {
     margin: 8px 0;
@@ -27,6 +27,7 @@
 .RepairCard > div {
     font-size: 2rem;
     padding-top: 15px;
+    font-weight: bold;
 }
 .RepairCard > img {
     border-radius: 8px;
@@ -36,12 +37,15 @@
     text-align: center;
     margin: 20px 20%;
     padding: 10px;
+    font-size: 1.7rem;
+    font-weight: bold;
 }
 .RepairList {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 10px 20px;
+    font-size: 1.4rem;
 }
 .RepairEx {
     padding-bottom: 100px;

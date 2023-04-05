@@ -6,7 +6,7 @@ const summary = () => {
     return (
         <div className="summaryBox">
             <Container className="summaryInBox">
-                <img src="/pictures/allaround.png" />
+                <img src="/pictures/allaround.png" width="60%" />
                 <div className="summaryAboutBox">
                     <div className="summaryAbout">About</div>
                     <div className="summaryContents">

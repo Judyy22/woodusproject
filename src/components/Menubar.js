@@ -8,6 +8,7 @@ const Menubar = () => {
         {
             id: 1,
             name: "WOODUS소개",
+            link: "/woodus",
             dropdown: [
                 { id: 1, name: "WOODUS 는?", link: "/woodus" },
                 { id: 2, name: "연혁", link: "/woodus/history" },
@@ -18,6 +19,7 @@ const Menubar = () => {
         {
             id: 2,
             name: "가구수리소",
+            link: "/repair",
             dropdown: [
                 { id: 1, name: "서비스 소개", link: "/repair" },
                 { id: 2, name: "이용 후기", link: "/repair/feedback" },
@@ -26,6 +28,7 @@ const Menubar = () => {
         {
             id: 3,
             name: "프로그램",
+            link: "/class",
             dropdown: [
                 { id: 1, name: "모집중", link: "/class" },
                 { id: 2, name: "모집종료", link: "/class/end" },
@@ -34,7 +37,7 @@ const Menubar = () => {
         {
             id: 4,
             name: "기업사회공헌",
-            dropdown: [],
+            link: "/contribution",
         },
         {
             id: 5,
@@ -97,7 +100,13 @@ const Menubar = () => {
                                     className={`menu-item ${
                                         activeMenu === menu.id ? "active" : ""
                                     }`}
-                                    onClick={() => handleMenuClick(menu)}
+                                    onClick={() => {
+                                        if (menu.dropdown) {
+                                            handleMenuClick(menu);
+                                        } else {
+                                            window.location.href = menu.link;
+                                        }
+                                    }}
                                 >
                                     {menu.name}
                                     {activeMenu === menu.id && (
