@@ -10,17 +10,46 @@ const CourseAdd = () => {
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-        const week = [
-            Number(event.target.elements.week[0].checked),
-            Number(event.target.elements.week[1].checked),
-            Number(event.target.elements.week[2].checked),
-            Number(event.target.elements.week[3].checked),
-            Number(event.target.elements.week[4].checked),
-            Number(event.target.elements.week[5].checked),
-            Number(event.target.elements.week[6].checked),
-        ];
-        const weekBinary = week.join("");
-        console.log("week", weekBinary);
+        // const week = [
+        //     Number(event.target.elements.week[0].checked),
+        //     Number(event.target.elements.week[1].checked),
+        //     Number(event.target.elements.week[2].checked),
+        //     Number(event.target.elements.week[3].checked),
+        //     Number(event.target.elements.week[4].checked),
+        //     Number(event.target.elements.week[5].checked),
+        //     Number(event.target.elements.week[6].checked),
+        // ];
+        // const weekBinary = week.join("");
+        // console.log("week", weekBinary);
+        const name = document.getElementById("name").value;
+        const type = document.querySelectorAll('input[name="type"]:checked');
+        const fee = document.getElementById("fee").value;
+        const limit = document.getElementById("limit").value;
+        const startdate = document.getElementById("startdate").value;
+        const enddate = document.getElementById("enddate").value;
+        const starttime = document.getElementById("starttime").value;
+        const endtime = document.getElementById("endtime").value;
+        const week = document.querySelectorAll('input[id="week"]:checked');
+        const place = document.getElementById("place").value;
+        const deadline = document.getElementById("deadline").value;
+        const sumary = document.getElementById("sumary").value;
+
+        if (
+            !name ||
+            type.length === 0 ||
+            !fee ||
+            !limit ||
+            !startdate ||
+            !enddate ||
+            !starttime ||
+            !endtime ||
+            !place ||
+            !deadline ||
+            !sumary
+        ) {
+            alert("빈 칸을 채워주세요.");
+            return;
+        }
     };
 
     return (
