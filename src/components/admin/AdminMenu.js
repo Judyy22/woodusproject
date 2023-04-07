@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import "./Admin.css";
 
 const AdminMenu = ({ onClick }) => {
     const navigate = useNavigate();
@@ -14,23 +13,31 @@ const AdminMenu = ({ onClick }) => {
         setButton(buttonId);
         onClick(buttonId);
     };
+    const showAdmin = (id) => {
+        navigate(`/admin/${id}`);
+    };
+
     return (
         <div>
-            <Container className="AdminMenuBox">
-                <div className="programMenu">
-                    <div id="1000" onClick={goHome}>
-                        홈페이지
-                    </div>
-                    <div>
-                        <div id="1001" onClick={handleButtonClick}>
-                            프로그램 등록
-                        </div>
-                        <div id="1002" onClick={handleButtonClick}>
-                            프로그램 신청자 목록
-                        </div>
-                    </div>
-                </div>
-            </Container>
+            <Navbar bg="light" expand="lg">
+                <Container>
+                    <Navbar.Brand href="/">홈으로</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link onClick={() => showAdmin("addcourse")}>
+                                프로그램 내용등록
+                            </Nav.Link>
+                            <Nav.Link onClick={() => showAdmin("addposter")}>
+                                프로그램 포스터등록
+                            </Nav.Link>
+                            <Nav.Link onClick={() => showAdmin("peoplelist")}>
+                                프로그램 신청자목록
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         </div>
     );
 };

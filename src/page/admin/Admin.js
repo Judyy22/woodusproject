@@ -1,27 +1,39 @@
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
 import CourseAdd from "../../components/admin/CourseAdd";
 import AdminMenu from "../../components/admin/AdminMenu";
-import "../../components/admin/Admin.css";
 import PeopleList from "../../components/admin/PeopleList";
+import { useParams } from "react-router-dom";
+import PosterAdd from "../../components/admin/PosterAdd";
 
 const Admin = () => {
-    const [menu, setMenu] = useState(null);
-    const ButtonId = (data) => {
-        console.log("admin", data);
-        setMenu(data);
-    };
+    let { id } = useParams();
+    console.log("아이디", id);
+    if (id === "addcourse") {
+        return (
+            <div>
+                <AdminMenu />
+                <CourseAdd />
+            </div>
+        );
+    } else if (id === "addposter") {
+        return (
+            <div>
+                <AdminMenu />
+                <PosterAdd />
+            </div>
+        );
+    } else if (id === "peoplelist") {
+        return (
+            <div>
+                <AdminMenu />
+                <PeopleList />
+            </div>
+        );
+    }
     return (
-        <div className="AdminBack">
-            <Container className="AdminMainMenu">
-                <div className="AdminMainMenuLeft">
-                    <AdminMenu onClick={ButtonId} />
-                </div>
-                <div className="AdminMainMenuRight">
-                    {menu === "1001" ? <CourseAdd /> : null}
-                    {menu === "1002" ? <PeopleList /> : null}
-                </div>
-            </Container>
+        <div>
+            <AdminMenu />
+            <div>관리자페이지 입니다.</div>
         </div>
     );
 };

@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 import PrivateRoute from "./route/PrivateRoute";
 
 function App() {
-    const [authenticate, setAuthenticate] = useState(true); //true면 로그인 됨
+    const [authenticate, setAuthenticate] = useState(false); //true면 로그인 됨
     useEffect(() => {
         console.log("aaaaaa", authenticate);
     }, [authenticate]);
@@ -40,6 +40,10 @@ function App() {
             />
             <Route
                 path="/admin"
+                element={<PrivateRoute authenticate={authenticate} />}
+            />
+            <Route
+                path="/admin/:id"
                 element={<PrivateRoute authenticate={authenticate} />}
             />
         </Routes>
