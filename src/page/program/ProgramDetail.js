@@ -8,9 +8,6 @@ import "./ProgramDetail.css";
 const ProgramDetail = (props) => {
     const id = props.id;
     const navigate = useNavigate();
-    const showClassList = () => {
-        navigate("/class");
-    };
     const enrollClass = () => {
         navigate(`/class/enroll`);
     };
@@ -67,7 +64,7 @@ const ProgramDetail = (props) => {
                         물품 (톱, 끌, 대패 등)
                     </div>
                     <div className="ProgramDetailButton">
-                        <button onClick={() => showClassList()}>
+                        <button onClick={() => window.history.back()}>
                             목록으로
                         </button>
                         <button onClick={() => enrollClass()}>신청하기</button>

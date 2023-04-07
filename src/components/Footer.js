@@ -1,5 +1,5 @@
-import React from "react";
-import { Container } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Container, Form, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 
@@ -10,8 +10,8 @@ const Footer = () => {
                 <div className="footerRightBox">
                     <div className="rightFirst">
                         <div className="linktag">개인정보 처리 방침</div>
-                        <Link to="/admin" className="linktag">
-                            <div>관리자 코드</div>
+                        <Link to="/adminLog" className="linktag">
+                            <div>관리자코드</div>
                         </Link>
                     </div>
                     <div className="rightSecond">
