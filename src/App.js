@@ -15,6 +15,7 @@ import Enroll from "./page/program/Enroll";
 import AdminLog from "./page/admin/AdminLog";
 import { useEffect, useState } from "react";
 import PrivateRoute from "./route/PrivateRoute";
+import CheckEnrollDocument from "./page/program/CheckEnrollDocument";
 
 function App() {
     const [authenticate, setAuthenticate] = useState(false); //true면 로그인 됨
@@ -33,6 +34,7 @@ function App() {
             <Route path="/class" element={<Hiringprogram />} />
             <Route path="/class/:id" element={<ProgramDetail />} />
             <Route path="/class/enroll" element={<Enroll />} />
+            <Route path="/class/enroll/:id" element={<CheckEnrollDocument />} />
             <Route path="/contribution" element={<Contrib />} />
             <Route
                 path="/adminLog"

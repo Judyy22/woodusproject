@@ -4,11 +4,13 @@ import Footer from "../../components/Footer";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./ProgramDetail.css";
+import Swal from "sweetalert2";
 
 const ProgramDetail = (props) => {
     const id = props.id;
     const navigate = useNavigate();
     const enrollClass = () => {
+        alert("신청하겠습니까?");
         navigate(`/class/enroll`);
     };
 

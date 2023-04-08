@@ -45,7 +45,7 @@
     text-align: center;
 }
 .ProgramDetailButton > button {
-    border: 3px solid #baa89a;
+    border: none;
     border-radius: 10px;
     background-color: #ede6db;
     padding: 8px 20px;
