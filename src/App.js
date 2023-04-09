@@ -23,9 +23,6 @@ import Ask from "./page/community/Ask";
 
 function App() {
     const [authenticate, setAuthenticate] = useState(false); //true면 로그인 됨
-    useEffect(() => {
-        console.log("aaaaaa", authenticate);
-    }, [authenticate]);
     return (
         <Routes>
             <Route path="/" element={<Homepage />} />

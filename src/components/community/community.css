@@ -1,0 +1,46 @@
+/* AskInfo Start */
+.askBox {
+    padding: 100px 0;
+    background-color: #faf7f2;
+    height: 60.5vh;
+}
+.askLogo {
+    margin: 0 30%;
+}
+.askWord {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 20px;
+    margin: 40px;
+}
+.askWay {
+    background-color: #ede6db;
+    text-align: center;
+}
+.askPhone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 15px;
+}
+.askPhone > div,
+.askPhone > svg {
+    font-size: 1.3rem;
+    margin: 5px;
+}
+
+.askWay > div:nth-child(2) {
+    padding-bottom: 25px;
+}
+.askWay div:nth-child(2) a {
+    margin: 20px;
+}
+/* AskInfo End */
+/* NoticePage Start */
+.noticeBox {
+    padding: 70px 0;
+    background-color: #faf7f2;
+}
+/* NoticePage End */

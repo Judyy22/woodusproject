@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import "./Admin.css";
+import post from "axios";
 
 const CourseAdd = () => {
     const preventKey = (e) => {
@@ -10,17 +11,17 @@ const CourseAdd = () => {
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-        // const week = [
-        //     Number(event.target.elements.week[0].checked),
-        //     Number(event.target.elements.week[1].checked),
-        //     Number(event.target.elements.week[2].checked),
-        //     Number(event.target.elements.week[3].checked),
-        //     Number(event.target.elements.week[4].checked),
-        //     Number(event.target.elements.week[5].checked),
-        //     Number(event.target.elements.week[6].checked),
-        // ];
-        // const weekBinary = week.join("");
-        // console.log("week", weekBinary);
+        const weekBinary = [
+            Number(event.target.elements.week[0].checked),
+            Number(event.target.elements.week[1].checked),
+            Number(event.target.elements.week[2].checked),
+            Number(event.target.elements.week[3].checked),
+            Number(event.target.elements.week[4].checked),
+            Number(event.target.elements.week[5].checked),
+            Number(event.target.elements.week[6].checked),
+        ];
+        const weekcode = weekBinary.join("");
+        console.log("week", weekcode);
         const name = document.getElementById("name").value;
         const type = document.querySelectorAll('input[name="type"]:checked');
         const fee = document.getElementById("fee").value;
@@ -32,7 +33,36 @@ const CourseAdd = () => {
         const week = document.querySelectorAll('input[id="week"]:checked');
         const place = document.getElementById("place").value;
         const deadline = document.getElementById("deadline").value;
-        const sumary = document.getElementById("sumary").value;
+        const summary = document.getElementById("summary").value;
+        const notice = document.getElementById("notice").value;
+
+        const submitServer = () => {
+            const url = "http://woodus.net/api/course";
+            const data = {
+                name: name,
+                fee: fee,
+                limit: limit,
+                deadline: deadline,
+                startdate: startdate,
+                enddate: enddate,
+                starttime: starttime,
+                endtime: endtime,
+                summary: summary,
+                place: place,
+                week: weekcode,
+                type: type,
+                notice: notice,
+            };
+            const config = { "Content-Type": "application/json" };
+            post(url, data, config)
+                .then((res) => {
+                    // 성공 처리
+                })
+                .catch((err) => {
+                    // 에러 처리
+                    console.log(err.response.data.message); // --> 서버단 에러메세지 출력~
+                });
+        };
 
         if (
             !name ||
@@ -45,10 +75,14 @@ const CourseAdd = () => {
             !endtime ||
             !place ||
             !deadline ||
-            !sumary
+            !summary ||
+            !notice
         ) {
             alert("빈 칸을 채워주세요.");
             return;
+        } else {
+            submitServer();
+            console.log(submitServer.data);
         }
     };
 
@@ -128,7 +162,7 @@ const CourseAdd = () => {
                     <div>교육내용</div>
                     <input
                         type="text"
-                        id="sumary"
+                        id="summary"
                         placeholder="교육내용 한줄요약"
                     />
                 </div>
