@@ -31,8 +31,22 @@ const Footer = () => {
                 <div>
                     <img src="/pictures/woodus-logo.png" width="150px" />
                     <div>
-                        <div>밴드</div>
-                        <div>카카오</div>
+                        <div>
+                            <a
+                                href="http://pf.kakao.com/_WIJDxj"
+                                target="_blank"
+                            >
+                                <img src="/pictures/kakaochannel.png" />
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://band.us/@wdus" target="_blank">
+                                <img
+                                    src="/pictures/naverband.png"
+                                    width="30%"
+                                />
+                            </a>
+                        </div>
                     </div>
                 </div>
             </Container>
