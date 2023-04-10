@@ -7,31 +7,55 @@ const ClassCard = (props) => {
     const showClass = (id) => {
         navigate(`/class/${id}`);
     };
-    const type = props.Click;
-    if (type === "Edu") {
-    } else if (type === "Exp") {
-    } else
+    const detailInfo = props.listDetail;
+    const category = props.click;
+
+    if (
+        category === "All" ||
+        (category === "Edu" && detailInfo.type === "edu") ||
+        (category === "Exp" && detailInfo.type === "exp")
+    ) {
         return (
-            <div className="ClassCardBox" onClick={() => showClass("id")}>
+            <div
+                className="ClassCardBox"
+                onClick={() => showClass(detailInfo.id)}
+            >
                 <div className="CardImageBack">
                     <img src="/pictures/classEx.png" />
                 </div>
-                <div className="ClassType">교육</div>
-                <div className="ClassName">가구제작기능사</div>
+
+                {detailInfo.type == "edu" ? (
+                    <div>
+                        <div className="ClassTypeEdu">교육</div>
+                    </div>
+                ) : (
+                    <div>
+                        <div className="ClassTypeExp">체험</div>
+                    </div>
+                )}
+
+                <div className="ClassName">{detailInfo.name}</div>
                 <div className="ClassDetail">
                     <div>교육기간</div>
-                    <div>2023.03 ~ 2023.05</div>
+                    <div>
+                        {detailInfo.startDate} ~ {detailInfo.endDate}
+                    </div>
                 </div>
                 <div className="ClassDetail">
                     <div>교육시간</div>
-                    <div>09:00 ~ 11:00</div>
+                    <div>
+                        {detailInfo.startTime} ~ {detailInfo.endTime}
+                    </div>
                 </div>
                 <div className="ClassDetail">
                     <div>모집정원</div>
-                    <div>20</div>
+                    <div>{detailInfo.num_people}</div>
                 </div>
             </div>
         );
+    } else {
+        return null;
+    }
 };
 
 export default ClassCard;

@@ -9,7 +9,7 @@ function courseReducer(state = initialState, action) {
     switch (type) {
         // 모집중,완료 코스 조회
         case "GET_COURSES_REQUEST":
-            return { ...state };
+            return [{ ...state }];
         case "GET_COURSES_SUCCESS":
             return {
                 ...state,

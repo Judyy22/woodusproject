@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://woodus.net/api",
+    baseURL: "http://woodus.net/api",
+    headers: { "Content-type": "application/json" },
 });
 
 // Add a request interceptor

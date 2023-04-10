@@ -25,7 +25,7 @@ const CourseAdd = () => {
         const name = document.getElementById("name").value;
         const type = document.querySelectorAll('input[name="type"]:checked');
         const fee = document.getElementById("fee").value;
-        const limit = document.getElementById("limit").value;
+        const num_people = document.getElementById("num_people").value;
         const startdate = document.getElementById("startdate").value;
         const enddate = document.getElementById("enddate").value;
         const starttime = document.getElementById("starttime").value;
@@ -41,7 +41,7 @@ const CourseAdd = () => {
             const data = {
                 name: name,
                 fee: fee,
-                limit: limit,
+                num_people: num_people,
                 deadline: deadline,
                 startdate: startdate,
                 enddate: enddate,
@@ -57,6 +57,7 @@ const CourseAdd = () => {
             post(url, data, config)
                 .then((res) => {
                     // 성공 처리
+                    console.log("잘 보내짐");
                 })
                 .catch((err) => {
                     // 에러 처리
@@ -68,7 +69,7 @@ const CourseAdd = () => {
             !name ||
             type.length === 0 ||
             !fee ||
-            !limit ||
+            !num_people ||
             !startdate ||
             !enddate ||
             !starttime ||
@@ -112,7 +113,11 @@ const CourseAdd = () => {
                 </div>
                 <div>
                     <div>수강인원</div>
-                    <input type="number" id="limit" placeholder="수강 인원" />
+                    <input
+                        type="number"
+                        id="num_people"
+                        placeholder="수강 인원"
+                    />
                 </div>
                 <div className="startTime">
                     <div>프로그램 시작일</div>
