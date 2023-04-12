@@ -134,10 +134,6 @@ const Menubar = () => {
                                                             pathname:
                                                                 dropdown.link,
                                                         }}
-                                                        state={{
-                                                            data: menu,
-                                                            select: dropdown.id,
-                                                        }}
                                                         className="linktag"
                                                     >
                                                         <div>

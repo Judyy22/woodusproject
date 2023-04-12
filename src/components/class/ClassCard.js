@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Class.css";
 import { useNavigate } from "react-router-dom";
 
 const ClassCard = (props) => {
     const navigate = useNavigate();
-    const showClass = (id) => {
-        navigate(`/class/${id}`);
+    const [finish, setFinish] = useState(false);
+    const recruite = props.recruiting;
+    const showDetail = (id) => {
+        if (recruite !== "end") {
+            navigate(`/class/${id}`);
+        }
     };
+    useEffect(() => {
+        if (recruite === "open") {
+            setFinish(false);
+        } else if (recruite === "end") {
+            setFinish(true);
+        }
+    }, []);
+
     const detailInfo = props.listDetail;
     const category = props.click;
+
+    console.log("detailInfo", detailInfo);
 
     if (
         category === "All" ||
@@ -17,8 +31,8 @@ const ClassCard = (props) => {
     ) {
         return (
             <div
-                className="ClassCardBox"
-                onClick={() => showClass(detailInfo.id)}
+                className={finish ? "ClassCardBoxEnd" : "ClassCardBox"}
+                onClick={() => showDetail(detailInfo.id)}
             >
                 <div className="CardImageBack">
                     <img src="/pictures/classEx.png" />
@@ -26,11 +40,11 @@ const ClassCard = (props) => {
 
                 {detailInfo.type == "edu" ? (
                     <div>
-                        <div className="ClassTypeEdu">교육</div>
+                        <div className="ClassType edu">교육</div>
                     </div>
                 ) : (
                     <div>
-                        <div className="ClassTypeExp">체험</div>
+                        <div className="ClassType exp">체험</div>
                     </div>
                 )}
 
@@ -38,13 +52,13 @@ const ClassCard = (props) => {
                 <div className="ClassDetail">
                     <div>교육기간</div>
                     <div>
-                        {detailInfo.startDate} ~ {detailInfo.endDate}
+                        {detailInfo.start_date} ~ {detailInfo.end_date}
                     </div>
                 </div>
                 <div className="ClassDetail">
                     <div>교육시간</div>
                     <div>
-                        {detailInfo.startTime} ~ {detailInfo.endTime}
+                        {detailInfo.start_time} ~ {detailInfo.end_time}
                     </div>
                 </div>
                 <div className="ClassDetail">

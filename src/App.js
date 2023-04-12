@@ -20,9 +20,10 @@ import Activity from "./page/community/Activity";
 import Notice from "./page/community/Notice";
 import Qna from "./page/community/Qna";
 import Ask from "./page/community/Ask";
+import Endprogram from "./page/program/Endprogram";
 
 function App() {
-    const [authenticate, setAuthenticate] = useState(false); //true면 로그인 됨
+    const [authenticate, setAuthenticate] = useState(true); //true면 로그인 됨 true로 해놓고 작업하면 좋음
     return (
         <Routes>
             <Route path="/" element={<Homepage />} />
@@ -33,6 +34,7 @@ function App() {
             <Route path="/repair" element={<Repair />} />
             <Route path="/repair/feedback" element={<Feedback />} />
             <Route path="/class" element={<Hiringprogram />} />
+            <Route path="/class/end" element={<Endprogram />} />
             <Route path="/class/:id" element={<ProgramDetail />} />
             <Route path="/class/enroll" element={<Enroll />} />
             <Route path="/class/enroll/:id" element={<CheckEnrollDocument />} />

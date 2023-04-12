@@ -3,15 +3,25 @@ import "./Enroll.css";
 import { Container, Form } from "react-bootstrap";
 import DaumPostcode from "react-daum-postcode";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { courseAction } from "../../redux/Actions/courseAction";
 
 const EnrollDocument = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const courses = useSelector((state) => state.course.presentCourses);
     const [address, setAddress] = useState({
         postalCode: "",
         address: "",
         extraAddress: "",
     });
+    console.log(courses);
     const [showPostcode, setShowPostcode] = useState(false);
+
+    useEffect(() => {
+        dispatch(courseAction.getCourses());
+    }, []);
 
     const handleAddress = (data) => {
         setAddress({
@@ -35,41 +45,54 @@ const EnrollDocument = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const courseName = document.querySelector(
-            'select[name="courseName"] option:checked'
+        const course_id = document.querySelector(
+            'select[name="course_id"] option:checked'
         ).value;
         const name = document.getElementById("name").value;
         const phone = document.getElementById("phone").value;
         const submitAddress = address.address;
         const remainAddress = document.getElementById("remainAddress").value;
+        const stu_address = submitAddress + remainAddress;
         const agree = document.getElementById("agree").checked;
 
+        const submitServer = () => {
+            const url = "http://woodus.net/api/student";
+            const data = {
+                name: name,
+                course_id: course_id,
+                phone: phone,
+                stu_address: stu_address,
+            };
+            const config = { "Content-Type": "application/json" };
+            axios
+                .post(url, data, config)
+                .then((res) => {
+                    // 성공 처리
+                    console.log("잘 보내짐");
+                })
+                .catch((err) => {
+                    // 에러 처리
+                    console.log(err.response.data.message); // --> 서버단 에러메세지 출력~
+                });
+        };
         if (!name) {
             alert("이름을 입력해주세요!");
             return;
         } else if (!phone) {
             alert("핸드폰 번호를 입력해주세요!");
             return;
-        } else if (!submitAddress) {
+        } else if (!stu_address) {
             alert("주소를 입력해주세요!");
             return;
         } else if (!agree) {
             alert("개인정보제공동의를 해주세요!");
             return;
+        } else {
+            if (window.confirm(`신청하는 프로그램이 맞습니까?`) == true) {
+                submitServer();
+            }
+            return;
         }
-
-        console.log(
-            "hi",
-            courseName,
-            name,
-            phone,
-            submitAddress,
-            remainAddress,
-            agree
-        );
-
-        // 작성후 여기로 이동
-        // navigate(`/class/enroll/${id}`);
     };
 
     return (
@@ -78,9 +101,14 @@ const EnrollDocument = () => {
                 <Form onSubmit={handleSubmit} className="EnrollPaper">
                     <div>
                         <div>프로그램 이름</div>
-                        <select name="courseName">
-                            <option value="0">프로그램 선택</option>
-                            <option value="1001">가구제작기능사</option>
+                        <select name="course_id">
+                            {Array.isArray(courses)
+                                ? courses.map((course) => (
+                                      <option key={course.id} value={course.id}>
+                                          {course.name}
+                                      </option>
+                                  ))
+                                : []}
                         </select>
                     </div>
                     <div>

@@ -1,17 +1,17 @@
 import React from "react";
 import Menubar from "../../components/Menubar";
-import { useLocation } from "react-router-dom";
 import Secondmenu from "../../components/Secondmenu";
-import NoticePage from "../../components/community/NoticePage";
+import { useLocation } from "react-router-dom";
+import EndClass from "../../components/class/EndClass";
 
-const Notice = () => {
+const Endprogram = () => {
     return (
         <div>
             <Menubar />
             <Secondmenu />
-            <NoticePage />
+            <EndClass />
         </div>
     );
 };
 
-export default Notice;
+export default Endprogram;

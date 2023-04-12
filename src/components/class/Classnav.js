@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ClassCard from "./ClassCard";
 import "./Class.css";
-import { useDispatch, useSelector } from "react-redux";
-import { courseAction } from "../../redux/Actions/courseAction";
 
-const Classnav = () => {
-    const dispatch = useDispatch();
-    const courses = useSelector((state) => state.course);
+const Classnav = (props) => {
+    const courses = props.props;
+    const classOpening = props.class;
     const [selectedTab, setSelectedTab] = useState("All");
     const handleTabClick = (tab) => {
         setSelectedTab(tab);
     };
-
-    useEffect(() => {
-        dispatch(courseAction.getCourses());
-    }, []);
-    const courseList = courses.presentCourses;
-
     return (
         <div>
             <div className="ClassNavBox">
@@ -31,13 +23,14 @@ const Classnav = () => {
                 </div>
             </div>
             <div className="ClassCardLine">
-                {Array.isArray(courseList)
-                    ? courseList.map((cardItem) => (
+                {Array.isArray(courses)
+                    ? courses.map((cardItem) => (
                           <ClassCard
                               key={cardItem.id}
                               className="ClassCardBox"
                               click={selectedTab}
                               listDetail={cardItem}
+                              recruiting={classOpening}
                           />
                       ))
                     : []}

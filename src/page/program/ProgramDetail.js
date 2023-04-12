@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Menubar from "../../components/Menubar";
 import Footer from "../../components/Footer";
 import { Container } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./ProgramDetail.css";
+import { useDispatch, useSelector } from "react-redux";
+import { courseAction } from "../../redux/Actions/courseAction";
 
 const ProgramDetail = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { id } = useParams();
+    const courseInfo = useSelector((state) => state.course.courseDetail);
+    const getCourseInfo = async () => {
+        dispatch(courseAction.getCourseDetail(id));
+    };
+    useEffect(() => {
+        getCourseInfo();
+    }, []);
     const enrollClass = () => {
         alert("신청하겠습니까?");
         navigate(`/class/enroll`);
     };
+
+    // const course = courseInfo.courseDetail;
+    console.log("코스 이름", courseInfo);
 
     return (
         <div>
@@ -22,9 +36,7 @@ const ProgramDetail = () => {
                             <img src="/pictures/ClassImage.jpg" width="100%" />
                         </div>
                         <div>
-                            <div className="ProgramDetailTitle">
-                                가구제작기능사 자격증반
-                            </div>
+                            <div className="ProgramDetailTitle">{}</div>
                             <div className="ProgramDetailInfoBox">
                                 <div className="ProgramDetailInfo">
                                     <div>교육 기간</div>

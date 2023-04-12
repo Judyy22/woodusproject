@@ -7,7 +7,6 @@ import PosterAdd from "../../components/admin/PosterAdd";
 
 const Admin = () => {
     let { id } = useParams();
-    console.log("아이디", id);
     if (id === "addcourse") {
         return (
             <div>

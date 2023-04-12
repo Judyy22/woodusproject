@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Classnav from "./Classnav";
-import "./Class.css";
 import { useDispatch, useSelector } from "react-redux";
 import { courseAction } from "../../redux/Actions/courseAction";
-import { useLocation } from "react-router-dom";
 
-const Class = () => {
+const EndClass = () => {
     const dispatch = useDispatch();
-    const calldata = useSelector((state) => state.course.presentCourses);
+    const calldata = useSelector((state) => state.course.overCourses);
     useEffect(() => {
         dispatch(courseAction.getCourses());
     }, []);
+    console.log(calldata);
     return (
         <div className="ClassBox">
             <Container className="ClassContainer">
-                <div className="HiringProgram">모집중 프로그램</div>
-                <Classnav props={calldata} class={"open"} />
+                <div className="HiringProgram">모집종료 프로그램</div>
+                <Classnav props={calldata} class={"end"} />
             </Container>
         </div>
     );
 };
 
-export default Class;
+export default EndClass;

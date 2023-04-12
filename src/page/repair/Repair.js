@@ -6,14 +6,10 @@ import RepairMain from "../../components/repair/RepairMain";
 import Footer from "../../components/Footer";
 
 const Repair = () => {
-    const location = useLocation();
-    const List = location.state.data;
-    const now = location.state.select;
-
     return (
         <div>
             <Menubar />
-            <Secondmenu list={List} now={now} />
+            <Secondmenu />
             <RepairMain />
             <Footer />
         </div>

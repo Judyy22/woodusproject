@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import "./Admin.css";
 import post from "axios";
+import axios from "axios";
 
 const CourseAdd = () => {
     const preventKey = (e) => {
@@ -23,13 +24,13 @@ const CourseAdd = () => {
         const weekcode = weekBinary.join("");
         console.log("week", weekcode);
         const name = document.getElementById("name").value;
-        const type = document.querySelectorAll('input[name="type"]:checked');
+        const type = document.querySelector('input[name="type"]:checked').value;
         const fee = document.getElementById("fee").value;
         const num_people = document.getElementById("num_people").value;
-        const startdate = document.getElementById("startdate").value;
-        const enddate = document.getElementById("enddate").value;
-        const starttime = document.getElementById("starttime").value;
-        const endtime = document.getElementById("endtime").value;
+        const start_date = document.getElementById("startdate").value;
+        const end_date = document.getElementById("enddate").value;
+        const start_time = document.getElementById("starttime").value;
+        const end_time = document.getElementById("endtime").value;
         const week = document.querySelectorAll('input[id="week"]:checked');
         const place = document.getElementById("place").value;
         const deadline = document.getElementById("deadline").value;
@@ -43,18 +44,21 @@ const CourseAdd = () => {
                 fee: fee,
                 num_people: num_people,
                 deadline: deadline,
-                startdate: startdate,
-                enddate: enddate,
-                starttime: starttime,
-                endtime: endtime,
+                start_date: start_date,
+                end_date: end_date,
+                start_time: start_time,
+                end_time: end_time,
                 summary: summary,
                 place: place,
                 week: weekcode,
                 type: type,
                 notice: notice,
             };
+
+            console.log("데이타", data);
             const config = { "Content-Type": "application/json" };
-            post(url, data, config)
+            axios
+                .post(url, data, config)
                 .then((res) => {
                     // 성공 처리
                     console.log("잘 보내짐");
@@ -70,10 +74,10 @@ const CourseAdd = () => {
             type.length === 0 ||
             !fee ||
             !num_people ||
-            !startdate ||
-            !enddate ||
-            !starttime ||
-            !endtime ||
+            !start_date ||
+            !end_date ||
+            !start_time ||
+            !end_time ||
             !place ||
             !deadline ||
             !summary ||

@@ -6,10 +6,6 @@ import HistoryLine from "../../components/woodus/HistoryLine";
 import Footer from "../../components/Footer";
 
 const History = () => {
-    const location = useLocation();
-    const List = location.state.data;
-    const now = location.state.select;
-
     const historyContents = [
         {
             id: 1,
@@ -142,7 +138,7 @@ const History = () => {
     return (
         <div>
             <Menubar />
-            <Secondmenu list={List} now={now} />
+            <Secondmenu />
             <HistoryLine content={historyContents} />
             <Footer />
         </div>

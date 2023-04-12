@@ -40,6 +40,14 @@
     border-radius: 8px;
     box-sizing: border-box;
 }
+.ClassCardBoxEnd {
+    margin: 15px 0;
+    background-color: #cac9c7;
+    width: 330px;
+    height: 460px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
 .ClassCardBox:hover {
     border: 2px solid #baa89a;
     box-shadow: 2px 5px 5px #0000002e;
@@ -49,21 +57,18 @@
     background-color: white;
     border-radius: 8px;
 }
-.ClassTypeEdu {
-    background-color: #baa89a;
+.ClassType {
     display: inline-block;
-    padding: 8px 15px;
+    padding: 4px 10px;
     margin: 10px;
-    border-radius: 20px;
+    border-radius: 7px;
     font-weight: bold;
 }
-.ClassTypeExp {
+.edu {
+    background-color: #baa89a;
+}
+.exp {
     background-color: #faf7f2;
-    display: inline-block;
-    padding: 8px 15px;
-    margin: 10px;
-    border-radius: 20px;
-    font-weight: bold;
 }
 .ClassName {
     text-align: center;

@@ -2,25 +2,80 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import "./Secondmenu.css";
 
-const Secondmenu = (props) => {
-    const menuTitle = props.list.name;
-    const menuList = props.list.dropdown;
-    const select = props.now;
-    const nextList = props.list; //세컨드메뉴바로 이동시 전체 리스트 보내줘야함
-
-    const nowSelect = menuList[select - 1];
-
-    const [newlist, setNewList] = useState(menuList);
+const Secondmenu = () => {
+    const location = useLocation();
+    const [list, setList] = useState([]);
+    const [title, setTitle] = useState();
+    const [selectTitle, setSelectTitle] = useState();
     const [openlist, setOpenlist] = useState(false);
-    const [listHeight, setListHeight] = useState(0);
 
     useEffect(() => {
-        const filteredArray = menuList.filter((item) => item.id !== select);
-        setNewList(filteredArray);
-    }, [menuList, select]);
+        const nowPath = location.pathname;
+        const slicePath = nowPath.split("/").filter(Boolean);
+        if (slicePath[0] === "woodus") {
+            console.log("우드어스는?");
+            setTitle("WOODUS소개");
+            setList([
+                { id: 1, name: "WOODUS 는?", link: "/woodus" },
+                { id: 2, name: "연혁", link: "/woodus/history" },
+                { id: 3, name: "시설소개", link: "/woodus/facilities" },
+                { id: 4, name: "오시는길", link: "/woodus/location" },
+            ]);
+            if (slicePath[1] === "history") {
+                setSelectTitle("연혁");
+            } else if (slicePath[1] === "facilitis") {
+                setSelectTitle("시설소개");
+            } else if (slicePath[1] === "location") {
+                setSelectTitle("오시는길");
+            } else {
+                setSelectTitle("WOODUS 는?");
+            }
+        } else if (slicePath[0] === "repair") {
+            setTitle("가구수리소");
+            setList([
+                { id: 1, name: "서비스 소개", link: "/repair" },
+                { id: 2, name: "이용 후기", link: "/repair/feedback" },
+            ]);
+            if (slicePath[1] === "feedback") {
+                setSelectTitle("이용 후기");
+            } else {
+                setSelectTitle("서비스 소개");
+            }
+        } else if (slicePath[0] === "class") {
+            setTitle("프로그램");
+            setList([
+                { id: 1, name: "모집중", link: "/class" },
+                { id: 2, name: "모집종료", link: "/class/end" },
+            ]);
+            if (slicePath[1] === "end") {
+                setSelectTitle("모집종료");
+            } else {
+                setSelectTitle("모집중");
+            }
+        } else if (slicePath[0] === "contribution") {
+            setList();
+        } else if (slicePath[0] === "community") {
+            setTitle("커뮤니티");
+            setList([
+                { id: 1, name: "우리의 활동", link: "/community" },
+                { id: 2, name: "공지사항", link: "/community/notice" },
+                { id: 3, name: "QnA", link: "/community/qna" },
+                { id: 4, name: "문의하기", link: "/community/ask" },
+            ]);
+            if (slicePath[1] === "notice") {
+                setSelectTitle("공지사항");
+            } else if (slicePath[1] === "qna") {
+                setSelectTitle("QnA");
+            } else if (slicePath[1] === "ask") {
+                setSelectTitle("문의하기");
+            } else {
+                setSelectTitle("우리의 활동");
+            }
+        }
+    }, [location]);
 
     const clickList = () => {
         setOpenlist(!openlist);
@@ -45,14 +100,10 @@ const Secondmenu = (props) => {
     return (
         <div className="secondMenuBox">
             <Container className="secondMenuInBox">
-                <div className="secondMenuTitle">{menuTitle}</div>
+                <div className="secondMenuTitle">{title}</div>
                 <div className="seconMenuSecondTitle">
-                    <div
-                        key={nowSelect.id}
-                        className="selectName"
-                        onClick={clickList}
-                    >
-                        {nowSelect.name}
+                    <div className="selectName" onClick={clickList}>
+                        {selectTitle}
                         <div>
                             <FontAwesomeIcon icon={faAngleDown} />
                         </div>
@@ -64,18 +115,9 @@ const Secondmenu = (props) => {
                                 : "secondMenulistbox"
                         }
                     >
-                        {newlist.map((item) => (
+                        {list.map((item) => (
                             <li key={item.id} className="secondMenulist">
-                                <Link
-                                    to={item.link}
-                                    key={item.id}
-                                    state={{
-                                        data: nextList,
-                                        select: item.id,
-                                    }}
-                                >
-                                    {item.name}
-                                </Link>
+                                <Link to={item.link}>{item.name}</Link>
                             </li>
                         ))}
                     </ul>

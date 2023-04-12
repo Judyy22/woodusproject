@@ -5,15 +5,18 @@ function getCourses() {
         try {
             dispatch({ type: "GET_COURSES_REQUEST" });
             const getPresentCoursesApi = api.get(`/course/present`); //진행중인 코스 조회
-            // const getOverCoursesApi = api.get(`/course/over`);
+            const getOverCoursesApi = api.get(`/course/over`); //종료 코스 조회
 
-            let [presentCourses] = await Promise.all([getPresentCoursesApi]);
+            let [presentCourses, overCourses] = await Promise.all([
+                getPresentCoursesApi,
+                getOverCoursesApi,
+            ]);
 
             dispatch({
                 type: "GET_COURSES_SUCCESS",
                 payload: {
                     presentCourses: presentCourses.data,
-                    // overCourses: overCourses.data,
+                    overCourses: overCourses.data,
                 },
             });
         } catch (error) {
