@@ -35,7 +35,10 @@ const ClassCard = (props) => {
                 onClick={() => showDetail(detailInfo.id)}
             >
                 <div className="CardImageBack">
-                    <img src="/pictures/classEx.png" />
+                    <img
+                        src={`http://woodus.net/images/${detailInfo.poster_id}`}
+                        width="100%"
+                    />
                 </div>
 
                 {detailInfo.type == "edu" ? (

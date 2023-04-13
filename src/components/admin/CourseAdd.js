@@ -55,13 +55,13 @@ const CourseAdd = () => {
                 notice: notice,
             };
 
-            console.log("데이타", data);
             const config = { "Content-Type": "application/json" };
             axios
                 .post(url, data, config)
                 .then((res) => {
                     // 성공 처리
-                    console.log("잘 보내짐");
+                    console.log("잘 보내짐", res);
+                    alert("저장되었습니다.");
                 })
                 .catch((err) => {
                     // 에러 처리

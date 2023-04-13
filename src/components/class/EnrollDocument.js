@@ -10,7 +10,7 @@ import { courseAction } from "../../redux/Actions/courseAction";
 const EnrollDocument = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const courses = useSelector((state) => state.course.courseDetail);
+    const courses = useSelector((state) => state.course.presentCourses);
     const [address, setAddress] = useState({
         postalCode: "",
         address: "",
@@ -131,7 +131,7 @@ const EnrollDocument = () => {
                         <div>연락처</div>
                         <input
                             type="text"
-                            placeholder="010xxxxxxxx"
+                            placeholder="- 를 제외한 숫자만 입력해주세요"
                             id="phone"
                         />
                     </div>

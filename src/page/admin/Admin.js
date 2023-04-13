@@ -4,6 +4,8 @@ import AdminMenu from "../../components/admin/AdminMenu";
 import PeopleList from "../../components/admin/PeopleList";
 import { useParams } from "react-router-dom";
 import PosterAdd from "../../components/admin/PosterAdd";
+import { Container } from "react-bootstrap";
+import "../../components/admin/Admin.css";
 
 const Admin = () => {
     let { id } = useParams();
@@ -30,9 +32,14 @@ const Admin = () => {
         );
     }
     return (
-        <div>
+        <div className="adminMainBox">
             <AdminMenu />
-            <div>관리자페이지 입니다.</div>
+            <Container>
+                <div className="adminMainTitle">
+                    <div>관리자 페이지 입니다.</div>
+                    <div>메뉴를 선택해 주세요.</div>
+                </div>
+            </Container>
         </div>
     );
 };

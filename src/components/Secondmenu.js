@@ -16,7 +16,6 @@ const Secondmenu = () => {
         const nowPath = location.pathname;
         const slicePath = nowPath.split("/").filter(Boolean);
         if (slicePath[0] === "woodus") {
-            console.log("우드어스는?");
             setTitle("WOODUS소개");
             setList([
                 { id: 1, name: "WOODUS 는?", link: "/woodus" },

@@ -1,3 +1,14 @@
+/* Admin.js Start */
+.adminMainBox {
+    height: 100vh;
+    background-color: #ccc;
+}
+.adminMainTitle {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 20vh;
+}
+/* Admin.js End */
 /* CourseAdd Start */
 .Container {
     display: flex;
@@ -68,10 +79,14 @@
     padding: 0.8rem 8rem;
     border: none;
     border-radius: 0.25rem;
-    background-color: #878787;
+    background-color: #ccc;
     color: white;
     font-size: 1.3rem;
     cursor: pointer;
+}
+
+.submitbutton:hover {
+    background-color: #878787;
 }
 
 .CourseAddNotice {
@@ -142,5 +157,75 @@ tr:nth-child(even) {
 }
 /* PeopleList End */
 /* PosterAdd Start */
+.posteraddForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: #f5f5f5;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    margin: 80px 100px;
+}
+
+.posteraddForm > * {
+    margin: 10px 0;
+}
+
+select,
+input[type="file"] {
+    display: inline-block;
+    width: 400px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.posteraddImage {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.posteraddImage > div {
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+.postersubmit {
+    background-color: #ccc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.postersubmit:hover {
+    background-color: #878787;
+}
+
+.posteraddCourseName {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.posteraddCourseName > div {
+    margin-right: 10px;
+}
+
+.posteraddCourseName > select {
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
 
 /* PosterAdd End */
