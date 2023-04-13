@@ -9,6 +9,7 @@ const Classnav = (props) => {
     const handleTabClick = (tab) => {
         setSelectedTab(tab);
     };
+    console.log("courses", courses);
     return (
         <div>
             <div className="ClassNavBox">

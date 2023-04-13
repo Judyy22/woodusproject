@@ -48,19 +48,19 @@ const EnrollDocument = () => {
         const course_id = document.querySelector(
             'select[name="course_id"] option:checked'
         ).value;
-        const name = document.getElementById("name").value;
-        const phone = document.getElementById("phone").value;
+        const stu_name = document.getElementById("name").value;
+        const stu_phone = document.getElementById("phone").value;
         const submitAddress = address.address;
         const remainAddress = document.getElementById("remainAddress").value;
-        const stu_address = submitAddress + remainAddress;
+        const stu_address = submitAddress + "," + remainAddress;
         const agree = document.getElementById("agree").checked;
-
+        console.log("address", stu_address);
         const submitServer = () => {
             const url = "http://woodus.net/api/student";
             const data = {
-                name: name,
+                stu_name: stu_name,
                 course_id: course_id,
-                phone: phone,
+                stu_phone: stu_phone,
                 stu_address: stu_address,
             };
             const config = { "Content-Type": "application/json" };
@@ -69,16 +69,17 @@ const EnrollDocument = () => {
                 .then((res) => {
                     // 성공 처리
                     console.log("잘 보내짐");
+                    console.log(res);
                 })
                 .catch((err) => {
                     // 에러 처리
                     console.log(err.response.data.message); // --> 서버단 에러메세지 출력~
                 });
         };
-        if (!name) {
+        if (!stu_name) {
             alert("이름을 입력해주세요!");
             return;
-        } else if (!phone) {
+        } else if (!stu_phone) {
             alert("핸드폰 번호를 입력해주세요!");
             return;
         } else if (!stu_address) {
