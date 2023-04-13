@@ -1,27 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { peopleAction } from "../../redux/Actions/peopleAction";
 
 const ListForm = (props) => {
     const dispatch = useDispatch();
-    const course_id = props.id;
+    const courseId = props.id;
+    const course_name = props.name;
     const peoplelist = useSelector((state) => state.people.peopleList);
-    console.log("props", course_id);
 
     const getPeopleList = async () => {
-        dispatch(peopleAction.getPeople(3));
+        dispatch(peopleAction.getPeople(courseId));
+    };
+    const phoneNum = (number) => {
+        const trimmed = number.trim();
+        const first = trimmed.slice(0, 3);
+        const second = trimmed.slice(3, 7);
+        const third = trimmed.slice(7);
+        return `${first}-${second}-${third}`;
     };
     useEffect(() => {
-        getPeopleList();
-    }, []);
-
+        getPeopleList(courseId);
+    }, [courseId]);
     console.log(peoplelist);
     return (
         <div>
-            <table>
+            <table className="ListForemtable">
                 <thead>
                     <tr>
                         <th>No.</th>
+                        <th>프로그램</th>
                         <th>이름</th>
                         <th>연락처</th>
                         <th>주소</th>
@@ -29,25 +36,22 @@ const ListForm = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>이승희</td>
-                        <td>01020614198</td>
-                        <td>서울시 성동구 마장로137</td>
-                        <td>2023-04-12</td>
-                    </tr>
-                    <tr>
-                        {Array.isArray(peoplelist)
-                            ? peoplelist.map((item) => (
-                                  <tr key={item.id}>
-                                      <td>{item.id}</td>
-                                      <td>{item.name}</td>
-                                      <td>{item.phone}</td>
-                                      <td>{item.address}</td>
-                                  </tr>
-                              ))
-                            : []}
-                    </tr>
+                    {Array.isArray(peoplelist)
+                        ? peoplelist.map((person, index) => (
+                              <tr key={person.stu_id}>
+                                  <td>{index + 1}</td>
+                                  {courseId == person.course_id ? (
+                                      <td>{course_name}</td>
+                                  ) : (
+                                      []
+                                  )}
+                                  <td>{person.stu_name}</td>
+                                  <td>{phoneNum(person.stu_phone)}</td>
+                                  <td>{person.stu_address}</td>
+                                  <td>{person.date}</td>
+                              </tr>
+                          ))
+                        : []}
                 </tbody>
             </table>
         </div>

@@ -1,52 +1,55 @@
 import React, { useEffect, useState } from "react";
-import { Container, Form } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { courseAction } from "../../redux/Actions/courseAction";
 import ListForm from "./ListForm";
 
 const PeopleList = () => {
-    const [id, setId] = useState(0);
+    const [courseId, setCourseId] = useState(null);
+    const [courseName, setCourseName] = useState(null);
     const dispatch = useDispatch();
-    const coursePresentList = useSelector(
-        (state) => state.course.presentCourses
-    );
-    const courseOverList = useSelector((state) => state.course.overCourses);
+    const presentCourses = useSelector((state) => state.course.presentCourses);
+    const overCourses = useSelector((state) => state.course.overCourses);
 
     useEffect(() => {
         dispatch(courseAction.getCourses());
-    }, []);
+    }, [dispatch]);
 
-    const clickProgram = () => {
-        const course_id = document.querySelector(
+    const handleClick = () => {
+        const selectedCourseId = document.querySelector(
             'select[name="course_id"] option:checked'
         ).value;
-        console.log(course_id);
-        setId(course_id);
+        const selectedCourseName = document.querySelector(
+            'select[name="course_id"] option:checked'
+        ).text;
+        setCourseId(selectedCourseId);
+        setCourseName(selectedCourseName);
     };
 
     return (
-        <Container>
-            <Form>
+        <>
+            <Form className="peopleListform">
                 <div>프로그램 이름</div>
-                <select name="course_id" onClick={clickProgram}>
-                    {Array.isArray(coursePresentList)
-                        ? coursePresentList.map((course) => (
+                <select name="course_id">
+                    {Array.isArray(presentCourses)
+                        ? presentCourses.map((course) => (
                               <option key={course.id} value={course.id}>
                                   {course.name}
                               </option>
                           ))
                         : []}
-                    {Array.isArray(courseOverList)
-                        ? courseOverList.map((course) => (
+                    {Array.isArray(overCourses)
+                        ? overCourses.map((course) => (
                               <option key={course.id} value={course.id}>
                                   {course.name}
                               </option>
                           ))
                         : []}
                 </select>
+                <Button onClick={handleClick}>검색</Button>
             </Form>
-            <ListForm id={id} />
-        </Container>
+            {courseId && <ListForm id={courseId} name={courseName} />}
+        </>
     );
 };
 

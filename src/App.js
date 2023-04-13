@@ -15,12 +15,12 @@ import Enroll from "./page/program/Enroll";
 import AdminLog from "./page/admin/AdminLog";
 import { useEffect, useState } from "react";
 import PrivateRoute from "./route/PrivateRoute";
-import CheckEnrollDocument from "./page/program/CheckEnrollDocument";
 import Activity from "./page/community/Activity";
 import Notice from "./page/community/Notice";
 import Qna from "./page/community/Qna";
 import Ask from "./page/community/Ask";
 import Endprogram from "./page/program/Endprogram";
+import CompleteSubmit from "./components/class/CompleteSubmit";
 
 function App() {
     const [authenticate, setAuthenticate] = useState(true); //true면 로그인 됨 true로 해놓고 작업하면 좋음
@@ -37,7 +37,7 @@ function App() {
             <Route path="/class/end" element={<Endprogram />} />
             <Route path="/class/:id" element={<ProgramDetail />} />
             <Route path="/class/enroll" element={<Enroll />} />
-            <Route path="/class/enroll/:id" element={<CheckEnrollDocument />} />
+            <Route path="/class/enroll/complete" element={<CompleteSubmit />} />
             <Route path="/contribution" element={<Contrib />} />
             <Route path="/community" element={<Activity />} />
             <Route path="/community/notice" element={<Notice />} />

@@ -10,13 +10,12 @@ import { courseAction } from "../../redux/Actions/courseAction";
 const EnrollDocument = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const courses = useSelector((state) => state.course.presentCourses);
+    const courses = useSelector((state) => state.course.courseDetail);
     const [address, setAddress] = useState({
         postalCode: "",
         address: "",
         extraAddress: "",
     });
-    console.log(courses);
     const [showPostcode, setShowPostcode] = useState(false);
 
     useEffect(() => {
@@ -40,6 +39,11 @@ const EnrollDocument = () => {
     const handleCloseButton = (event) => {
         event.preventDefault();
         setShowPostcode(false);
+    };
+
+    const backPage = (event) => {
+        event.preventDefault();
+        window.history.back();
     };
 
     const handleSubmit = (event) => {
@@ -70,6 +74,9 @@ const EnrollDocument = () => {
                     // 성공 처리
                     console.log("잘 보내짐");
                     console.log(res);
+                    navigate("/class/enroll/complete", {
+                        state: { data: res.data },
+                    });
                 })
                 .catch((err) => {
                     // 에러 처리
@@ -124,7 +131,7 @@ const EnrollDocument = () => {
                         <div>연락처</div>
                         <input
                             type="text"
-                            placeholder="010-xxxx-xxxx"
+                            placeholder="010xxxxxxxx"
                             id="phone"
                         />
                     </div>
@@ -166,9 +173,7 @@ const EnrollDocument = () => {
                     </div>
                     <div className="EnrollSubmit">
                         <button type="submit">신청하기</button>
-                        <button onClick={() => window.history.back()}>
-                            돌아가기
-                        </button>
+                        <button onClick={backPage}>돌아가기</button>
                     </div>
                 </Form>
             </Container>
