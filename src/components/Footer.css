@@ -17,7 +17,6 @@
 .rightFirst div:first-child {
     padding-right: 20px;
     margin-right: 20px;
-    /* border-right: 1px solid rgb(97, 97, 97); */
 }
 .rightSecond * {
     margin-bottom: 5px;
@@ -32,4 +31,11 @@
 }
 .modal-backdrop {
     opacity: 0.5;
+}
+.contactLogo {
+    display: flex;
+}
+.contactLogo > div {
+    margin: 10px 5px 10px 0;
+    width: 80px;
 }

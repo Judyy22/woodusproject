@@ -28,23 +28,23 @@ const Footer = () => {
                         <div>Copyright ©WOODUS ALL RIGHTS RESERVED. </div>
                     </div>
                 </div>
-                <div>
-                    <img src="/pictures/woodus-logo.png" width="150px" />
-                    <div>
+                <div className="Second">
+                    <img src="/pictures/woodus-logo.png" width="100px" />
+                    <div className="contactLogo">
                         <div>
                             <a
                                 href="http://pf.kakao.com/_WIJDxj"
                                 target="_blank"
                             >
-                                <img src="/pictures/kakaochannel.png" />
+                                <img
+                                    src="/pictures/kakaochannel.png"
+                                    width="100%"
+                                />
                             </a>
                         </div>
                         <div>
                             <a href="https://band.us/@wdus" target="_blank">
-                                <img
-                                    src="/pictures/naverband.png"
-                                    width="30%"
-                                />
+                                <img src="/pictures/naverband.png" />
                             </a>
                         </div>
                     </div>
