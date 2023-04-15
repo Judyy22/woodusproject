@@ -10,7 +10,7 @@ const EndClass = () => {
     useEffect(() => {
         dispatch(courseAction.getCourses());
     }, []);
-    console.log(calldata);
+
     return (
         <div className="ClassBox">
             <Container className="ClassContainer">

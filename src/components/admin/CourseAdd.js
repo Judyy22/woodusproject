@@ -125,19 +125,32 @@ const CourseAdd = () => {
                 </div>
                 <div className="startTime">
                     <div>프로그램 시작일</div>
-                    <input type="date" id="startdate" />
+                    <input
+                        type="date"
+                        id="startdate"
+                        min={new Date().toISOString().split("T")[0]}
+                    />
                 </div>
                 <div className="endTime">
                     <div>프로그램 종료일</div>
-                    <input type="date" id="enddate" />
+                    <input
+                        type="date"
+                        id="enddate"
+                        min={new Date().toISOString().split("T")[0]}
+                    />
                 </div>
                 <div className="startTime">
                     <div>프로그램 시작시간</div>
-                    <input type="time" id="starttime" />
+                    <input
+                        type="time"
+                        id="starttime"
+                        step="1800"
+                        time24="true"
+                    />
                 </div>
                 <div className="endTime">
                     <div>프로그램 종료시간</div>
-                    <input type="time" id="endtime" />
+                    <input type="time" id="endtime" step="1800" time24="true" />
                 </div>
                 <div>
                     <div>프로그램 요일</div>
@@ -164,7 +177,11 @@ const CourseAdd = () => {
                 </div>
                 <div>
                     <div>신청 마감일</div>
-                    <input type="date" id="deadline" />
+                    <input
+                        type="date"
+                        id="deadline"
+                        min={new Date().toISOString().split("T")[0]}
+                    />
                 </div>
 
                 <div>

@@ -36,7 +36,7 @@ const ClassCard = (props) => {
             >
                 <div className="CardImageBack">
                     <img
-                        src={`http://woodus.net/images/${detailInfo.poster_id}`}
+                        src={`http://woodus.net/images/${detailInfo.thumbnail_id}`}
                         width="100%"
                     />
                 </div>
