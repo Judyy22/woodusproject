@@ -1,5 +1,5 @@
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Homepage from "./page/Homepage";
 import About from "./page/woodus/About";
@@ -13,7 +13,7 @@ import Contrib from "./page/contribution/Contrib";
 import ProgramDetail from "./page/program/ProgramDetail";
 import Enroll from "./page/program/Enroll";
 import AdminLog from "./page/admin/AdminLog";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PrivateRoute from "./route/PrivateRoute";
 import Activity from "./page/community/Activity";
 import Notice from "./page/community/Notice";
@@ -21,6 +21,8 @@ import Qna from "./page/community/Qna";
 import Ask from "./page/community/Ask";
 import Endprogram from "./page/program/Endprogram";
 import CompleteSubmit from "./components/class/CompleteSubmit";
+import ContribDetail from "./page/contribution/ContribDetail";
+import QnaWrite from "./page/community/QnaWrite";
 
 function App() {
     const [authenticate, setAuthenticate] = useState(true); //true면 로그인 됨 true로 해놓고 작업하면 좋음
@@ -39,9 +41,11 @@ function App() {
             <Route path="/class/enroll" element={<Enroll />} />
             <Route path="/class/enroll/complete" element={<CompleteSubmit />} />
             <Route path="/contribution" element={<Contrib />} />
+            <Route path="/contribution/:id" element={<ContribDetail />} />
             <Route path="/community" element={<Activity />} />
             <Route path="/community/notice" element={<Notice />} />
             <Route path="/community/qna" element={<Qna />} />
+            <Route path="/community/qna/write" element={<QnaWrite />} />
             <Route path="/community/ask" element={<Ask />} />
             <Route
                 path="/adminLog"

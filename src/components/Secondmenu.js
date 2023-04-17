@@ -55,7 +55,6 @@ const Secondmenu = () => {
                 setSelectTitle("모집중");
             }
         } else if (slicePath[0] === "contribution") {
-            setList();
         } else if (slicePath[0] === "community") {
             setTitle("커뮤니티");
             setList([

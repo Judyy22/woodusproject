@@ -1,6 +1,6 @@
 import React from "react";
 import Menubar from "../../components/Menubar";
-import { useLocation } from "react-router-dom";
+import Footer from "../../components/Footer";
 import Secondmenu from "../../components/Secondmenu";
 import NoticePage from "../../components/community/NoticePage";
 
@@ -10,6 +10,7 @@ const Notice = () => {
             <Menubar />
             <Secondmenu />
             <NoticePage />
+            <Footer />
         </div>
     );
 };

@@ -1,18 +1,16 @@
 import React from "react";
 import Menubar from "../../components/Menubar";
-import Footer from "../../components/Footer";
 import Secondmenu from "../../components/Secondmenu";
-import QnaDetail from "../../components/community/QnaDetail";
+import QnaWritebox from "../../components/community/QnaWritebox";
 
-const Qna = () => {
+const QnaWrite = () => {
     return (
         <div>
             <Menubar />
             <Secondmenu />
-            <QnaDetail />
-            <Footer />
+            <QnaWritebox />
         </div>
     );
 };
 
-export default Qna;
+export default QnaWrite;

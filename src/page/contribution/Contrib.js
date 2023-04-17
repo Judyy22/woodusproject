@@ -1,6 +1,6 @@
 import React from "react";
 import Menubar from "../../components/Menubar";
-import { Container } from "react-bootstrap";
+import Footer from "../../components/Footer";
 import Contribution from "../../components/contribution/Contribution";
 
 const Contrib = () => {
@@ -8,6 +8,7 @@ const Contrib = () => {
         <div>
             <Menubar />
             <Contribution />
+            <Footer />
         </div>
     );
 };

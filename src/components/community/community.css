@@ -38,9 +38,21 @@
     margin: 20px;
 }
 /* AskInfo End */
-/* NoticePage Start */
-.noticeBox {
-    padding: 70px 0;
+/* ActivityDetail.js Start */
+.ActivityBox {
     background-color: #faf7f2;
+    padding: 20px;
 }
-/* NoticePage End */
+/* ActivityDetail.js End */
+/* NoticeDetail.js Start */
+.noticeBox {
+    background-color: #faf7f2;
+    padding: 20px;
+}
+/* NoticeDetail.js End */
+/* QnaDetail.js Start */
+.QnaBox {
+    background-color: #faf7f2;
+    padding: 20px;
+}
+/* QnaDetail.js End */
