@@ -23,6 +23,10 @@ import Endprogram from "./page/program/Endprogram";
 import CompleteSubmit from "./components/class/CompleteSubmit";
 import ContribDetail from "./page/contribution/ContribDetail";
 import QnaWrite from "./page/community/QnaWrite";
+import FeedbackDetail from "./components/repair/FeedbackDetail";
+import ActivityContent from "./components/community/ActivityContent";
+import QnaContent from "./components/community/QnaContent";
+import NoticeContent from "./components/community/NoticeContent";
 
 function App() {
     const [authenticate, setAuthenticate] = useState(true); //true면 로그인 됨 true로 해놓고 작업하면 좋음
@@ -35,6 +39,7 @@ function App() {
             <Route path="/woodus/location" element={<Location />} />
             <Route path="/repair" element={<Repair />} />
             <Route path="/repair/feedback" element={<Feedback />} />
+            <Route path="/repair/feedback/:id" element={<FeedbackDetail />} />
             <Route path="/class" element={<Hiringprogram />} />
             <Route path="/class/end" element={<Endprogram />} />
             <Route path="/class/:id" element={<ProgramDetail />} />
@@ -43,9 +48,12 @@ function App() {
             <Route path="/contribution" element={<Contrib />} />
             <Route path="/contribution/:id" element={<ContribDetail />} />
             <Route path="/community" element={<Activity />} />
+            <Route path="/community/:id" element={<ActivityContent />} />
             <Route path="/community/notice" element={<Notice />} />
+            <Route path="/community/notice/:id" element={<NoticeContent />} />
             <Route path="/community/qna" element={<Qna />} />
-            <Route path="/community/qna/write" element={<QnaWrite />} />
+            <Route path="/community/qna/:id" element={<QnaContent />} />
+            <Route path="/community/addqna" element={<QnaWrite />} />
             <Route path="/community/ask" element={<Ask />} />
             <Route
                 path="/adminLog"

@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import PosterAdd from "../../components/admin/PosterAdd";
 import { Container } from "react-bootstrap";
 import "../../components/admin/Admin.css";
+import AddNotice from "../../components/admin/AddNotice";
+import AddContribution from "../../components/admin/AddContribution";
 
 const Admin = () => {
     let { id } = useParams();
@@ -28,6 +30,20 @@ const Admin = () => {
             <div>
                 <AdminMenu />
                 <PeopleList />
+            </div>
+        );
+    } else if (id === "addnotice") {
+        return (
+            <div>
+                <AdminMenu />
+                <AddNotice />
+            </div>
+        );
+    } else if (id === "addcontribution") {
+        return (
+            <div>
+                <AdminMenu />
+                <AddContribution />
             </div>
         );
     }

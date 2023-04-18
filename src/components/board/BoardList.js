@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import "./Board.css";
 import Pagination from "./Pagination";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const BoardList = () => {
     const [boardList, setBoardList] = useState([
@@ -90,6 +91,9 @@ const BoardList = () => {
             visitors: 30,
         },
     ]);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const [movePage, setMovePage] = useState();
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 10;
 
@@ -98,6 +102,34 @@ const BoardList = () => {
     const currentPosts = boardList.slice(indexOfFirstPost, indexOfLastPost);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    useEffect(() => {
+        const nowPath = location.pathname;
+        const slicePath = nowPath.split("/").filter(Boolean);
+        console.log(slicePath);
+        if (slicePath[0] == "repair") {
+            console.log("repair");
+            setMovePage("/repair/feedback/");
+        } else if (slicePath[0] == "community") {
+            if (slicePath[1] == "notice") {
+                console.log("notice");
+                setMovePage("/community/notice/");
+            } else if (slicePath[1] == "qna") {
+                console.log("qna");
+                setMovePage("/community/qna/");
+            } else {
+                console.log("activity");
+                setMovePage("/community/");
+            }
+        }
+    }, []);
+    console.log("movePage", movePage);
+    const goDetail = (id) => {
+        if (movePage) {
+            return `${movePage}${id}`;
+        } else {
+            return `${movePage}`; // Replace with your actual detail page URL path
+        }
+    };
     return (
         <div className="boardListBox">
             <Container className="boardListTableBox">
@@ -112,7 +144,10 @@ const BoardList = () => {
                     </thead>
                     <tbody>
                         {currentPosts.map((board, index) => (
-                            <tr key={board.id}>
+                            <tr
+                                key={board.id}
+                                onClick={() => navigate(goDetail(board.id))}
+                            >
                                 <th scope="row">{index + 1}</th>
                                 <td>{board.title}</td>
                                 <td>{board.created_at}</td>

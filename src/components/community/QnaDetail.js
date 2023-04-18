@@ -7,7 +7,7 @@ const QnaDetail = () => {
     return (
         <div className="QnaBox">
             <div>QnA</div>
-            <Link to="/community/qnawrite">글쓰기</Link>
+            <Link to="/community/addqna">글쓰기</Link>
             <BoardList />
         </div>
     );

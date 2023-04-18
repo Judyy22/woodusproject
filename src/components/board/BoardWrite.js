@@ -2,9 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import Axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const BoardWrite = () => {
-    const [movieContent, setMovieContent] = useState({
+    const location = useLocation();
+    console.log(location.pathname);
+    const [boardContent, setBoardContent] = useState({
         title: "",
         content: "",
     });
@@ -26,15 +29,15 @@ const BoardWrite = () => {
         //         console.error(error);
         //     });
         console.log({
-            title: movieContent.title,
-            content: movieContent.content,
+            title: boardContent.title,
+            content: boardContent.content,
         });
     };
 
     const getValue = (e) => {
         const { name, value } = e.target;
-        setMovieContent({
-            ...movieContent,
+        setBoardContent({
+            ...boardContent,
             [name]: value,
         });
     };
@@ -64,8 +67,8 @@ const BoardWrite = () => {
                     onChange={(event, editor) => {
                         const data = editor.getData();
                         console.log({ event, editor, data });
-                        setMovieContent({
-                            ...movieContent,
+                        setBoardContent({
+                            ...boardContent,
                             content: data,
                         });
                     }}

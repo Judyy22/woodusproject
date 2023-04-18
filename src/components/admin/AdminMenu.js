@@ -5,9 +5,6 @@ import { useNavigate } from "react-router-dom";
 const AdminMenu = ({ onClick }) => {
     const navigate = useNavigate();
     const [button, setButton] = useState();
-    const goHome = (e) => {
-        navigate("/");
-    };
     const handleButtonClick = (event) => {
         const buttonId = event.target.id;
         setButton(buttonId);
@@ -33,6 +30,14 @@ const AdminMenu = ({ onClick }) => {
                             </Nav.Link>
                             <Nav.Link onClick={() => showAdmin("peoplelist")}>
                                 프로그램 신청자목록
+                            </Nav.Link>
+                            <Nav.Link onClick={() => showAdmin("addnotice")}>
+                                공지사항 등록
+                            </Nav.Link>
+                            <Nav.Link
+                                onClick={() => showAdmin("addcontribution")}
+                            >
+                                기업사회공헌 등록
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
