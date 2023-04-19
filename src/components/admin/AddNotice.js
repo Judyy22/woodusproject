@@ -5,7 +5,10 @@ import BoardWrite from "../board/BoardWrite";
 const AddNotice = () => {
     return (
         <Container>
-            <BoardWrite />
+            <div className="addNoticeeBox">
+                <div className="addNoticeTitle">공지사항 등록하기</div>
+                <BoardWrite />
+            </div>
         </Container>
     );
 };

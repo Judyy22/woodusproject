@@ -9,7 +9,6 @@ const Classnav = (props) => {
     const handleTabClick = (tab) => {
         setSelectedTab(tab);
     };
-    const isEmpty = !courses || courses.length === 0;
     return (
         <div>
             <div className="ClassNavBox">
@@ -23,10 +22,7 @@ const Classnav = (props) => {
                     체험 프로그램
                 </div>
             </div>
-            <div
-                className="ClassCardLine"
-                style={{ height: isEmpty ? "35vh" : "auto" }}
-            >
+            <div className="ClassCardLine">
                 {Array.isArray(courses)
                     ? courses.map((cardItem) => (
                           <ClassCard

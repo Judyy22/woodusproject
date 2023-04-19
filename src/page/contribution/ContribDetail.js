@@ -1,5 +1,6 @@
 import React from "react";
 import Menubar from "../../components/Menubar";
+import Footer from "../../components/Footer";
 import ConDetail from "../../components/contribution/ConDetail";
 
 const ContribDetail = () => {
@@ -7,6 +8,7 @@ const ContribDetail = () => {
         <div>
             <Menubar />
             <ConDetail />
+            <Footer />
         </div>
     );
 };

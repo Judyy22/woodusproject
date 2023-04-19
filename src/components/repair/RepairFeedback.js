@@ -8,8 +8,8 @@ const RepairFeedback = () => {
         <div className="FeedbackBox">
             <Container>
                 <div className="FeedbackTitle">가구수리소 이용후기</div>
-                <BoardList />
             </Container>
+            <BoardList />
             <Footer />
         </div>
     );

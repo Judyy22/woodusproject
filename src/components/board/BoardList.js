@@ -13,83 +13,83 @@ const BoardList = () => {
             created_at: "2022-01-01",
             visitors: 10,
         },
-        {
-            id: 2,
-            title: "두 번째 게시글",
-            content: "두 번째 게시글 내용입니다.",
-            created_at: "2022-01-02",
-            visitors: 20,
-        },
-        {
-            id: 3,
-            title: "세 번째 게시글",
-            content: "세 번째 게시글 내용입니다.",
-            created_at: "2022-01-03",
-            visitors: 30,
-        },
-        {
-            id: 4,
-            title: "세 번째 게시글",
-            content: "세 번째 게시글 내용입니다.",
-            created_at: "2022-01-03",
-            visitors: 30,
-        },
-        {
-            id: 5,
-            title: "세 번째 게시글",
-            content: "세 번째 게시글 내용입니다.",
-            created_at: "2022-01-03",
-            visitors: 30,
-        },
-        {
-            id: 6,
-            title: "세 번째 게시글",
-            content: "세 번째 게시글 내용입니다.",
-            created_at: "2022-01-03",
-            visitors: 30,
-        },
-        {
-            id: 7,
-            title: "세 번째 게시글",
-            content: "세 번째 게시글 내용입니다.",
-            created_at: "2022-01-03",
-            visitors: 30,
-        },
-        {
-            id: 8,
-            title: "세 번째 게시글",
-            content: "세 번째 게시글 내용입니다.",
-            created_at: "2022-01-03",
-            visitors: 30,
-        },
-        {
-            id: 9,
-            title: "세 번째 게시글",
-            content: "세 번째 게시글 내용입니다.",
-            created_at: "2022-01-03",
-            visitors: 30,
-        },
-        {
-            id: 10,
-            title: "세 번째 게시글",
-            content: "세 번째 게시글 내용입니다.",
-            created_at: "2022-01-03",
-            visitors: 30,
-        },
-        {
-            id: 11,
-            title: "세 번째 게시글",
-            content: "세 번째 게시글 내용입니다.",
-            created_at: "2022-01-03",
-            visitors: 30,
-        },
-        {
-            id: 12,
-            title: "세 번째 게시글",
-            content: "세 번째 게시글 내용입니다.",
-            created_at: "2022-01-03",
-            visitors: 30,
-        },
+        // {
+        //     id: 2,
+        //     title: "두 번째 게시글",
+        //     content: "두 번째 게시글 내용입니다.",
+        //     created_at: "2022-01-02",
+        //     visitors: 20,
+        // },
+        // {
+        //     id: 3,
+        //     title: "세 번째 게시글",
+        //     content: "세 번째 게시글 내용입니다.",
+        //     created_at: "2022-01-03",
+        //     visitors: 30,
+        // },
+        // {
+        //     id: 4,
+        //     title: "세 번째 게시글",
+        //     content: "세 번째 게시글 내용입니다.",
+        //     created_at: "2022-01-03",
+        //     visitors: 30,
+        // },
+        // {
+        //     id: 5,
+        //     title: "세 번째 게시글",
+        //     content: "세 번째 게시글 내용입니다.",
+        //     created_at: "2022-01-03",
+        //     visitors: 30,
+        // },
+        // {
+        //     id: 6,
+        //     title: "세 번째 게시글",
+        //     content: "세 번째 게시글 내용입니다.",
+        //     created_at: "2022-01-03",
+        //     visitors: 30,
+        // },
+        // {
+        //     id: 7,
+        //     title: "세 번째 게시글",
+        //     content: "세 번째 게시글 내용입니다.",
+        //     created_at: "2022-01-03",
+        //     visitors: 30,
+        // },
+        // {
+        //     id: 8,
+        //     title: "세 번째 게시글",
+        //     content: "세 번째 게시글 내용입니다.",
+        //     created_at: "2022-01-03",
+        //     visitors: 30,
+        // },
+        // {
+        //     id: 9,
+        //     title: "세 번째 게시글",
+        //     content: "세 번째 게시글 내용입니다.",
+        //     created_at: "2022-01-03",
+        //     visitors: 30,
+        // },
+        // {
+        //     id: 10,
+        //     title: "세 번째 게시글",
+        //     content: "세 번째 게시글 내용입니다.",
+        //     created_at: "2022-01-03",
+        //     visitors: 30,
+        // },
+        // {
+        //     id: 11,
+        //     title: "세 번째 게시글",
+        //     content: "세 번째 게시글 내용입니다.",
+        //     created_at: "2022-01-03",
+        //     visitors: 30,
+        // },
+        // {
+        //     id: 12,
+        //     title: "세 번째 게시글",
+        //     content: "세 번째 게시글 내용입니다.",
+        //     created_at: "2022-01-03",
+        //     visitors: 30,
+        // },
     ]);
     const location = useLocation();
     const navigate = useNavigate();
@@ -105,7 +105,7 @@ const BoardList = () => {
     useEffect(() => {
         const nowPath = location.pathname;
         const slicePath = nowPath.split("/").filter(Boolean);
-        console.log(slicePath);
+
         if (slicePath[0] == "repair") {
             console.log("repair");
             setMovePage("/repair/feedback/");
@@ -113,16 +113,12 @@ const BoardList = () => {
             if (slicePath[1] == "notice") {
                 console.log("notice");
                 setMovePage("/community/notice/");
-            } else if (slicePath[1] == "qna") {
-                console.log("qna");
-                setMovePage("/community/qna/");
             } else {
                 console.log("activity");
                 setMovePage("/community/");
             }
         }
     }, []);
-    console.log("movePage", movePage);
     const goDetail = (id) => {
         if (movePage) {
             return `${movePage}${id}`;
@@ -133,29 +129,39 @@ const BoardList = () => {
     return (
         <div className="boardListBox">
             <Container className="boardListTableBox">
-                <Table className="boardListTable">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>제목</th>
-                            <th>등록일</th>
-                            <th>조회수</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {currentPosts.map((board, index) => (
-                            <tr
-                                key={board.id}
-                                onClick={() => navigate(goDetail(board.id))}
-                            >
-                                <th scope="row">{index + 1}</th>
-                                <td>{board.title}</td>
-                                <td>{board.created_at}</td>
-                                <td>{board.visitors}</td>
+                <div className="boarListTablePostion">
+                    <Table className="boardListTable">
+                        <thead>
+                            <tr>
+                                <th className="boardno">No.</th>
+                                <th className="boardtitle">제목</th>
+                                <th className="boarddate">등록일</th>
+                                <th className="boardwriter">작성자</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </Table>
+                        </thead>
+                        <tbody>
+                            {currentPosts.map((board, index) => (
+                                <tr
+                                    key={board.id}
+                                    onClick={() => navigate(goDetail(board.id))}
+                                >
+                                    <th scope="row" className="boardno">
+                                        {index + 1}
+                                    </th>
+                                    <td className="boardtitle">
+                                        {board.title}
+                                    </td>
+                                    <td className="boarddate">
+                                        {board.created_at}
+                                    </td>
+                                    <td className="boardwriter">
+                                        {board.visitors}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </Table>
+                </div>
                 <Pagination
                     postsPerPage={postsPerPage}
                     totalPosts={boardList.length}

@@ -17,15 +17,12 @@ import { useState } from "react";
 import PrivateRoute from "./route/PrivateRoute";
 import Activity from "./page/community/Activity";
 import Notice from "./page/community/Notice";
-import Qna from "./page/community/Qna";
 import Ask from "./page/community/Ask";
 import Endprogram from "./page/program/Endprogram";
 import CompleteSubmit from "./components/class/CompleteSubmit";
 import ContribDetail from "./page/contribution/ContribDetail";
-import QnaWrite from "./page/community/QnaWrite";
 import FeedbackDetail from "./components/repair/FeedbackDetail";
 import ActivityContent from "./components/community/ActivityContent";
-import QnaContent from "./components/community/QnaContent";
 import NoticeContent from "./components/community/NoticeContent";
 
 function App() {
@@ -51,9 +48,6 @@ function App() {
             <Route path="/community/:id" element={<ActivityContent />} />
             <Route path="/community/notice" element={<Notice />} />
             <Route path="/community/notice/:id" element={<NoticeContent />} />
-            <Route path="/community/qna" element={<Qna />} />
-            <Route path="/community/qna/:id" element={<QnaContent />} />
-            <Route path="/community/addqna" element={<QnaWrite />} />
             <Route path="/community/ask" element={<Ask />} />
             <Route
                 path="/adminLog"

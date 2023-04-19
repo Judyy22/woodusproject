@@ -5,6 +5,10 @@
     padding: 20px;
 }
 
+.boarListTablePostion {
+    min-height: 41.5vh;
+}
+
 .boardListTable {
     background-color: #ede6db;
     border-radius: 10px;
@@ -15,11 +19,13 @@
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
+    text-align: center;
 }
 
 .boardListTable td {
     font-size: 16px;
     padding: 10px;
+    text-align: center;
 }
 
 .boardListTable tbody tr {
@@ -33,17 +39,21 @@
     text-overflow: ellipsis;
     max-width: 400px;
 }
-th:first-child {
+.boardno {
     width: 10%;
+    border: 1px solid #ddd;
 }
-th:nth-child(2) {
+.boardtitle {
     width: 50%;
+    border: 1px solid #ddd;
 }
-th:nth-child(3) {
+.boarddate {
     width: 20%;
+    border: 1px solid #ddd;
 }
-th:nth-child(4) {
+.boardwriter {
     width: 10%;
+    border: 1px solid #ddd;
 }
 
 /* BooardList.js End */
@@ -158,20 +168,31 @@ th:nth-child(4) {
     border-radius: 5px;
     cursor: pointer;
 }
-
-.boardwriteButton > button {
-    padding: 10px;
-    font-size: 18px;
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #333;
-    border-radius: 5px;
+.adminsubmitButton {
+    margin-top: 1rem;
+    padding: 0.8rem 8rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #ccc;
+    color: white;
+    font-size: 1.3rem;
     cursor: pointer;
 }
+.adminsubmitButton:hover {
+    background-color: #878787;
+}
 
-.boardwriteButton > button:hover {
-    background-color: #333;
-    color: #fff;
+.clientsubmitButton {
+    border: none;
+    border-radius: 10px;
+    background-color: #ede6db;
+    padding: 8px 20px;
+    margin: 0 20px;
+    font-size: 1.2rem;
+}
+
+.clientsubmitButton:hover {
+    background-color: #baa89a;
 }
 
 .boardwriteButton {
@@ -180,3 +201,47 @@ th:nth-child(4) {
 }
 
 /* BoardWrite.js End */
+/* BoardView.js Start */
+.BoardViewBox {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #baa89a;
+    border-radius: 5px;
+}
+
+.BoardViewInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.BoardViewWriter,
+.BoardViewDate {
+    display: flex;
+    align-items: center;
+}
+
+.BoardViewWriter span:first-child,
+.BoardViewDate span:first-child {
+    margin-right: 10px;
+}
+.BoardViewTitle {
+    margin: 20px;
+    border: 1px solid #ede6db;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.BoardViewContent {
+    margin: 20px;
+    border: 1px solid #ede6db;
+    padding: 15px 20px;
+    border-radius: 5px;
+    min-height: 400px;
+}
+
+/* BoardView.js End */

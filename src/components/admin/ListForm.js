@@ -24,31 +24,35 @@ const ListForm = (props) => {
     console.log(peoplelist);
     return (
         <div>
-            <table className="ListForemtable">
+            <table className="ListFormtable">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th>프로그램</th>
-                        <th>이름</th>
-                        <th>연락처</th>
-                        <th>주소</th>
-                        <th>신청 날짜</th>
+                        <th className="listth">No.</th>
+                        <th className="listth">프로그램</th>
+                        <th className="listth">이름</th>
+                        <th className="listth">연락처</th>
+                        <th className="listth">주소</th>
+                        <th className="listth">신청 날짜</th>
                     </tr>
                 </thead>
                 <tbody>
                     {Array.isArray(peoplelist)
                         ? peoplelist.map((person, index) => (
-                              <tr key={person.stu_id}>
-                                  <td>{index + 1}</td>
+                              <tr key={person.stu_id} className="listtr">
+                                  <td className="listtd">{index + 1}</td>
                                   {courseId == person.course_id ? (
                                       <td>{course_name}</td>
                                   ) : (
                                       []
                                   )}
-                                  <td>{person.stu_name}</td>
-                                  <td>{phoneNum(person.stu_phone)}</td>
-                                  <td>{person.stu_address}</td>
-                                  <td>{person.date}</td>
+                                  <td className="listtd">{person.stu_name}</td>
+                                  <td className="listtd">
+                                      {phoneNum(person.stu_phone)}
+                                  </td>
+                                  <td className="listtd">
+                                      {person.stu_address}
+                                  </td>
+                                  <td className="listtd">{person.date}</td>
                               </tr>
                           ))
                         : []}

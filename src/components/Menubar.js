@@ -45,7 +45,6 @@ const Menubar = () => {
             dropdown: [
                 { id: 1, name: "우리의 활동", link: "/community" },
                 { id: 2, name: "공지사항", link: "/community/notice" },
-                { id: 3, name: "QnA", link: "/community/qna" },
                 { id: 4, name: "문의하기", link: "/community/ask" },
             ],
         },

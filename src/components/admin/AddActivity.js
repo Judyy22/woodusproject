@@ -2,17 +2,13 @@ import React, { useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import axios from "axios";
 
-const AddContribution = () => {
-    const [imageFile_thumbnail, setImageFile_thumbnail] = useState(null);
+const AddActivity = () => {
+    const [contents, setContents] = useState("");
     const [imageFile_contents1, setImageFile_contents1] = useState(null);
     const [imageFile_contents2, setImageFile_contents2] = useState(null);
     const [imageFile_contents3, setImageFile_contents3] = useState(null);
     const [imageFile_contents4, setImageFile_contents4] = useState(null);
     const [imageFile_contents5, setImageFile_contents5] = useState(null);
-
-    const handleThumbnailChange = (event) => {
-        setImageFile_thumbnail(event.target.files[0]);
-    };
 
     const handleImageChange1 = (event) => {
         setImageFile_contents1(event.target.files[0]);
@@ -34,39 +30,38 @@ const AddContribution = () => {
         document.getElementById(inputId).value = null;
     };
 
+    const content = contents.replace("\n", "<br/>");
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const title = document.getElementById("title").value;
-        const subtitle = document.getElementById("subtitle").value;
         const url = "http://woodus.net/api/contribution";
         const data = {
             title: title,
-            subtitle: subtitle,
-            imageFile_thumbnail: imageFile_thumbnail,
+            content: content,
             imageFile_contents1: imageFile_contents1,
             imageFile_contents2: imageFile_contents2,
             imageFile_contents3: imageFile_contents3,
             imageFile_contents4: imageFile_contents4,
             imageFile_contents5: imageFile_contents5,
         };
-        const config = { headers: { "Content-Type": "multipart/form-data" } };
-        axios
-            .post(url, data, config)
-            .then((response) => {
-                console.log(response);
-                alert("저장되었습니다.");
-            })
-            .catch((err) => {
-                console.log(err.response.data.message); // --> 서버단 에러메세지 출력~;
-            });
+        // const config = { headers: { "Content-Type": "multipart/form-data" } };
+        // axios
+        //     .post(url, data, config)
+        //     .then((response) => {
+        //         console.log(response);
+        //         alert("저장되었습니다.");
+        //     })
+        //     .catch((err) => {
+        //         console.log(err.response.data.message); // --> 서버단 에러메세지 출력~;
+        //     });
         console.log("data", data);
     };
-
     return (
         <Container>
-            <Form onSubmit={handleSubmit} className="conForm">
-                <div className="conName">기업사회공헌 등록</div>
-                <div className="conTitle">
+            <Form onSubmit={handleSubmit} className="addactivity">
+                <div className="addactivityName">우리의 활동 등록</div>
+                <div className="addactivityTitle">
                     <div>제목</div>
                     <input
                         type="text"
@@ -74,33 +69,18 @@ const AddContribution = () => {
                         placeholder="제목을 입력해주세요."
                     />
                 </div>
-                <div className="conTitle">
-                    <div>부제목 및 간단요약</div>
-                    <input
-                        type="text"
-                        id="subtitle"
-                        placeholder="30자 이내로 작성해주세요."
+                <div className="addactivityContents">
+                    <div>내용</div>
+                    <textarea
+                        name="contents"
+                        rows=""
+                        cols=""
+                        wrap="physical"
+                        onChange={(event) => setContents(event.target.value)}
                     />
                 </div>
                 <div className="conaddImage">
-                    <div className="conaddImageLine">
-                        <div>메인 사진</div>
-                        <input
-                            type="file"
-                            onChange={handleThumbnailChange}
-                            id="imageFile_Thumbnail"
-                        />
-                        <button
-                            type="button"
-                            className="resetButton"
-                            onClick={() => handleReset("imageFile_Thumbnail")}
-                        >
-                            X
-                        </button>
-                    </div>
-                </div>
-                <div className="conaddImage">
-                    <div>나머지사진</div>
+                    <div>사진 등록</div>
                     <div className="conaddImageLine">
                         <input
                             type="file"
@@ -180,4 +160,4 @@ const AddContribution = () => {
     );
 };
 
-export default AddContribution;
+export default AddActivity;

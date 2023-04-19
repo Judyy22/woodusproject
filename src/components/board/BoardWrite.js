@@ -5,16 +5,11 @@ import Axios from "axios";
 import { useLocation } from "react-router-dom";
 
 const BoardWrite = () => {
-    const location = useLocation();
-    console.log(location.pathname);
     const [boardContent, setBoardContent] = useState({
         title: "",
         content: "",
     });
-
     const [viewContent, setViewContent] = useState([]);
-
-    useEffect(() => {}, []);
 
     const submitReview = () => {
         // Axios.post("http://woodus.net/api/notice", {
@@ -57,7 +52,7 @@ const BoardWrite = () => {
                 <input
                     className="title-input"
                     type="text"
-                    placeholder="제목"
+                    placeholder="제목을 입력해주세요."
                     onChange={getValue}
                     name="title"
                 />
@@ -75,10 +70,9 @@ const BoardWrite = () => {
                 />
             </div>
             <div className="boardwriteButton">
-                <button className="submit-button" onClick={submitReview}>
-                    입력
+                <button className="adminsubmitButton" onClick={submitReview}>
+                    저장하기
                 </button>
-                <button>뒤로가기</button>
             </div>
         </div>
     );

@@ -12,15 +12,6 @@ const Contribution = () => {
                     <Col>
                         <ConCard />
                     </Col>
-                    <Col>
-                        <ConCard />
-                    </Col>
-                    <Col>
-                        <ConCard />
-                    </Col>
-                    <Col>
-                        <ConCard />
-                    </Col>
                 </Row>
             </Container>
         </div>

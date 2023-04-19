@@ -6,7 +6,9 @@ import BoardList from "../board/BoardList";
 const NoticePage = () => {
     return (
         <div className="noticeBox">
-            <div>공지사항</div>
+            <Container>
+                <div className="noticeTitle">공지사항</div>
+            </Container>
             <BoardList />
         </div>
     );
