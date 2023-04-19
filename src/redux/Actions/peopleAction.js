@@ -4,7 +4,7 @@ function getPeople(course_id) {
     return async (dispatch) => {
         try {
             dispatch({ type: "GET_PEOPLELIST_REQUEST" });
-            const peopleListApi = api.get(`/student/${course_id}`);
+            const peopleListApi = api.get(`/api/student/${course_id}`);
 
             let [peopleList] = await Promise.all([peopleListApi]);
 

@@ -9,6 +9,7 @@ import "../../components/admin/Admin.css";
 import AddNotice from "../../components/admin/AddNotice";
 import AddContribution from "../../components/admin/AddContribution";
 import AddActivity from "../../components/admin/AddActivity";
+import AddRepair from "../../components/admin/AddRepair";
 
 const Admin = () => {
     let { id } = useParams();
@@ -52,6 +53,13 @@ const Admin = () => {
             <div>
                 <AdminMenu />
                 <AddActivity />
+            </div>
+        );
+    } else if (id === "addrepair") {
+        return (
+            <div>
+                <AdminMenu />
+                <AddRepair />
             </div>
         );
     }

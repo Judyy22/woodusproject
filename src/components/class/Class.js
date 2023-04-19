@@ -4,7 +4,6 @@ import Classnav from "./Classnav";
 import "./Class.css";
 import { useDispatch, useSelector } from "react-redux";
 import { courseAction } from "../../redux/Actions/courseAction";
-import { useLocation } from "react-router-dom";
 
 const Class = () => {
     const dispatch = useDispatch();

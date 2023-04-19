@@ -2,17 +2,23 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const ConCard = () => {
+const ConCard = (data) => {
+    const item = data.data;
+    console.log("data", item);
     return (
         <div>
             <Card className="concardbox">
-                <Card.Img variant="top" src="/pictures/contest.png" />
+                <Card.Img
+                    variant="top"
+                    src={`http://woodus.net/images/${item.thumbnail_id}`}
+                    className="cardThumbnail"
+                />
                 <Card.Body>
-                    <Card.Title>사진 제목</Card.Title>
+                    <Card.Title>{item.title}</Card.Title>
                     <Card.Text className="cardSummary">
-                        CJ 사회공헌팀 트레이 만들기
+                        {item.subtitle}
                     </Card.Text>
-                    <Card.Text className="cardDate">2023-04-17</Card.Text>
+                    <Card.Text className="cardDate">{item.regdate}</Card.Text>
                     <Link to="/contribution/1">
                         <Button variant="light" className="concardbutton">
                             더보기

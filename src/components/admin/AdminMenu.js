@@ -31,6 +31,9 @@ const AdminMenu = ({ onClick }) => {
                             <Nav.Link onClick={() => showAdmin("addposter")}>
                                 프로그램 포스터등록
                             </Nav.Link>
+                            <Nav.Link onClick={() => showAdmin("addrepair")}>
+                                가구수리소후기 등록
+                            </Nav.Link>
                             <Nav.Link onClick={() => showAdmin("addnotice")}>
                                 공지사항 등록
                             </Nav.Link>

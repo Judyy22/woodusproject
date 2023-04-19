@@ -1,8 +1,6 @@
 let initialstate = {
     noticeList: {},
-    qnaList: {},
     noticeDetail: null,
-    qnaDetail: null,
 };
 
 function boardReducer(state = initialstate, action) {
@@ -15,7 +13,6 @@ function boardReducer(state = initialstate, action) {
             return {
                 ...state,
                 noticeList: payload.noticeList,
-                qnaList: payload.qnaList,
             };
         case "GET_BOARD_FAILURE":
             return { ...state };
@@ -27,7 +24,6 @@ function boardReducer(state = initialstate, action) {
             return {
                 ...state,
                 noticeDetail: payload.noticeDetail,
-                qnaDetail: payload.qnaDetail,
             };
         case "GET_BOARD_DETAIL_FAILURE":
             return { ...state };

@@ -17,6 +17,10 @@
     width: 18rem;
     margin: 25px 0;
 }
+.cardThumbnail {
+    width: 286px;
+    height: 180px;
+}
 .cardSummary {
     margin: 0;
 }

@@ -10,19 +10,21 @@ const BoardWrite = () => {
         content: "",
     });
     const [viewContent, setViewContent] = useState([]);
+    const writer = "관리자";
 
     const submitReview = () => {
-        // Axios.post("http://woodus.net/api/notice", {
-        //     title: movieContent.title,
-        //     contents: movieContent.contents,
-        // })
-        //     .then((response) => {
-        //         console.log(response.data);
-        //         alert("등록 완료!");
-        //     })
-        //     .catch((error) => {
-        //         console.error(error);
-        //     });
+        Axios.post("http://woodus.net/notice", {
+            title: boardContent.title,
+            content: boardContent.content,
+            writer: writer,
+        })
+            .then((response) => {
+                console.log(response.data);
+                alert("등록 완료!");
+            })
+            .catch((error) => {
+                console.error(error);
+            });
         console.log({
             title: boardContent.title,
             content: boardContent.content,

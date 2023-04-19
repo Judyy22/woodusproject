@@ -4,19 +4,19 @@ function getBoardList() {
     return async (dispatch) => {
         try {
             dispatch({ type: "GET_BOARD_REQUEST" });
-            const getNoticeApi = api.get("/notice/list"); //공지사항 목록 조회
-            const getQnaApi = api.get("/qna/list"); //QnA게시판 목록 조회
+            const getNoticeApi = api.get(`/notice/list`); //공지사항 목록 조회
+            const getActivityApi = api.get(`/activity`); //우리의활동 조회
 
-            let [noticeList, qnaList] = await Promise.all([
+            let [noticeList, activityList] = await Promise.all([
                 getNoticeApi,
-                getQnaApi,
+                getActivityApi,
             ]);
 
             dispatch({
                 type: "GET_BOARD_SUCCESS",
                 payload: {
                     noticeList: noticeList.data,
-                    qnaList: qnaList.data,
+                    activityList: activityList.data,
                 },
             });
         } catch (error) {
@@ -31,18 +31,18 @@ function getBoardDetail(board_id) {
         try {
             dispatch({ type: "GET_BOARD_DETAIL_REQUEST" });
             const getNoticeDetailApi = api.get(`/notice/${board_id}`); //공지사항 목록 조회
-            const getQnaDetailApi = api.get(`/qna/${board_id}`); //QnA게시판 목록 조회
+            const getActivityeDetailApi = api.get(`/activity/${board_id}`); //공지사항 목록 조회
 
-            let [noticeDetail, qnaDetail] = await Promise.all([
+            let [noticeDetail, activityDetail] = await Promise.all([
                 getNoticeDetailApi,
-                getQnaDetailApi,
+                getActivityeDetailApi,
             ]);
 
             dispatch({
                 type: "GET_BOARD_DETAIL_SUCCESS",
                 payload: {
                     noticeDetail: noticeDetail.data,
-                    qnaDetail: qnaDetail.data,
+                    activityDetail: activityDetail.data,
                 },
             });
         } catch (error) {

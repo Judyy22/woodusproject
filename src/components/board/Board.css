@@ -230,15 +230,13 @@
 }
 .BoardViewTitle {
     margin: 20px;
-    border: 1px solid #ede6db;
+    border-bottom: 3px solid #ede6db;
     padding: 10px 20px;
     font-size: 20px;
     font-weight: bold;
-    border-radius: 5px;
 }
 .BoardViewContent {
     margin: 20px;
-    border: 1px solid #ede6db;
     padding: 15px 20px;
     border-radius: 5px;
     min-height: 400px;

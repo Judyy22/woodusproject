@@ -1,29 +1,41 @@
 import React from "react";
 
-const FeedbackCard = () => {
+const FeedbackCard = (props) => {
+    const feedbackData = props.props;
+
+    const item = feedbackData?.[0];
+
+    console.log(item);
+
     return (
         <div className="feedbackcardBox">
             <div className="feedbackdate">
-                <div>2023-04-18</div>
+                <div>{item?.regdate}</div>
             </div>
             <div className="feedbackName">
-                <div>제목</div>
+                <div>{item?.title}</div>
             </div>
             <div className="feedbackImageBox">
                 <div className="beforeAfterBox">
                     <div className="feedbackBoxTitle">Before</div>
                     <div className="feedbackBoxImage">
-                        <img src="/pictures/repairBefore1.png" width="100%" />
+                        <img
+                            src={`http://woodus.net/images/${item?.before_id}`}
+                            width="100%"
+                        />
                     </div>
                 </div>
                 <div className="beforeAfterBox">
                     <div className="feedbackBoxTitle">After</div>
                     <div className="feedbackBoxImage">
-                        <img src="/pictures/repairAfter1.png" width="100%" />
+                        <img
+                            src={`http://woodus.net/images/${item?.after_id}`}
+                            width="100%"
+                        />
                     </div>
                 </div>
             </div>
-            <div className="feedbackcontent">수리내용</div>
+            <div className="feedbackcontent">{item?.content}</div>
         </div>
     );
 };

@@ -4,8 +4,8 @@ function getCourses() {
     return async (dispatch) => {
         try {
             dispatch({ type: "GET_COURSES_REQUEST" });
-            const getPresentCoursesApi = api.get(`/course/present`); //진행중인 코스 조회
-            const getOverCoursesApi = api.get(`/course/over`); //종료 코스 조회
+            const getPresentCoursesApi = api.get(`/api/course/present`); //진행중인 코스 조회
+            const getOverCoursesApi = api.get(`/api/course/over`); //종료 코스 조회
 
             let [presentCourses, overCourses] = await Promise.all([
                 getPresentCoursesApi,
@@ -30,7 +30,7 @@ function getCourseDetail(course_id) {
     return async (dispatch) => {
         try {
             dispatch({ type: "GET_DETAIL_REQUEST" });
-            const courseDetailApi = api.get(`/course/${course_id}`); //과정 세부내용 조회
+            const courseDetailApi = api.get(`/api/course/${course_id}`); //과정 세부내용 조회
 
             let [courseDetail] = await Promise.all([courseDetailApi]);
             dispatch({
