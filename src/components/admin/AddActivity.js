@@ -27,14 +27,16 @@ const AddActivity = () => {
     };
 
     const content = contents.replace("\n", "<br/>");
+    const writer = "관리자";
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const title = document.getElementById("title").value;
-        const url = "http://woodus.net/activity";
+        const url = "http://woodus.net/api/activity";
         const data = {
             title: title,
             content: content,
+            writer: writer,
             imageFile_contents1: imageFile_contents1,
             imageFile_contents2: imageFile_contents2,
             imageFile_contents3: imageFile_contents3,

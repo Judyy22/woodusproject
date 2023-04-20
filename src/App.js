@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Homepage from "./page/Homepage";
@@ -26,7 +26,7 @@ import ActivityContent from "./components/community/ActivityContent";
 import NoticeContent from "./components/community/NoticeContent";
 
 function App() {
-    const [authenticate, setAuthenticate] = useState(true); //true면 로그인 됨 true로 해놓고 작업하면 좋음
+    const [authenticate, setAuthenticate] = useState(false); //true면 로그인 됨 true로 해놓고 작업하면 좋음
     return (
         <Routes>
             <Route path="/" element={<Homepage />} />

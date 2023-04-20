@@ -14,7 +14,7 @@ function contributionReducer(state = initialState, action) {
         //기업사회공헌 개별항목 조회
         case "GET_CONDETAIL_REQUEST":
             return { ...state };
-        case "GET_CONDETAIL_REQUEST":
+        case "GET_CONDETAIL_SUCCESS":
             return { ...state, conDetail: payload.conDetail };
         default:
             return { ...state };

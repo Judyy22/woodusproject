@@ -9,7 +9,7 @@ import { contributionAction } from "../../redux/Actions/contributionAction";
 const ContribDetail = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const conDetail = useSelector((state) => state.con.ConDetail);
+    const conDetail = useSelector((state) => state.con.conDetail);
     const getconDetail = async () => {
         dispatch(contributionAction.getContributionDetail(id));
     };
@@ -17,11 +17,11 @@ const ContribDetail = () => {
         getconDetail();
     }, []);
 
-    console.log("conD", conDetail);
+    const detail = conDetail?.[0];
     return (
         <div>
             <Menubar />
-            <ConDetail />
+            <ConDetail detail={detail} />
             <Footer />
         </div>
     );

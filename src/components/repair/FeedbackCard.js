@@ -20,7 +20,7 @@ const FeedbackCard = (props) => {
                     <div className="feedbackBoxTitle">Before</div>
                     <div className="feedbackBoxImage">
                         <img
-                            src={`http://woodus.net/images/${item?.before_id}`}
+                            src={`http://woodus.net/api/images/${item?.before_id}`}
                             width="100%"
                         />
                     </div>
@@ -29,7 +29,7 @@ const FeedbackCard = (props) => {
                     <div className="feedbackBoxTitle">After</div>
                     <div className="feedbackBoxImage">
                         <img
-                            src={`http://woodus.net/images/${item?.after_id}`}
+                            src={`http://woodus.net/api/images/${item?.after_id}`}
                             width="100%"
                         />
                     </div>

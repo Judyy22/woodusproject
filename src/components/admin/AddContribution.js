@@ -14,7 +14,6 @@ const AddContribution = () => {
     const handleThumbnailChange = (event) => {
         setImageFile_thumbnail(event.target.files[0]);
     };
-
     const handleImageChange1 = (event) => {
         setImageFile_contents1(event.target.files[0]);
     };
@@ -33,6 +32,19 @@ const AddContribution = () => {
 
     const handleReset = (inputId) => {
         document.getElementById(inputId).value = null;
+        if (inputId == "imageFile_contents1") {
+            setImageFile_contents1(null);
+        } else if (inputId == "imageFile_contents2") {
+            setImageFile_contents2(null);
+        } else if (inputId == "imageFile_contents3") {
+            setImageFile_contents3(null);
+        } else if (inputId == "imageFile_contents4") {
+            setImageFile_contents4(null);
+        } else if (inputId == "imageFile_contents5") {
+            setImageFile_contents5(null);
+        } else if (inputId == "imageFile_thumbnail") {
+            setImageFile_thumbnail(null);
+        }
     };
 
     const preventKey = (e) => {
@@ -46,7 +58,7 @@ const AddContribution = () => {
         const title = document.getElementById("title").value;
 
         const submitServer = () => {
-            const url = "http://woodus.net/contribution";
+            const url = "http://woodus.net/api/contribution";
             const data = {
                 title: title,
                 subtitle: subtitle,
@@ -110,25 +122,30 @@ const AddContribution = () => {
                 </div>
                 <div className="conaddImage">
                     <div className="conaddImageLine">
-                        <div>메인 사진</div>
-                        <input
-                            type="file"
-                            onChange={handleThumbnailChange}
-                            id="imageFile_Thumbnail"
-                        />
-                        <button
-                            type="button"
-                            className="resetButton"
-                            onClick={() => handleReset("imageFile_Thumbnail")}
-                        >
-                            X
-                        </button>
+                        <div className="addActivityImageT">메인 사진</div>
+                        <div className="addActivityImage">
+                            <input
+                                type="file"
+                                onChange={handleThumbnailChange}
+                                id="imageFile_Thumbnail"
+                            />
+                            <button
+                                type="button"
+                                className="resetButton"
+                                onClick={() =>
+                                    handleReset("imageFile_Thumbnail")
+                                }
+                            >
+                                X
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className="conaddImage">
                     <div className="addActivityImageT">사진 등록</div>
                     <div className="addActivityImage">
                         <div className="conaddImageLine addactivitypic">
+                            <div className="conaddImagenum">1</div>
                             <input
                                 type="file"
                                 onChange={handleImageChange1}
@@ -145,6 +162,7 @@ const AddContribution = () => {
                             </button>
                         </div>
                         <div className="conaddImageLine addactivitypic">
+                            <div className="conaddImagenum">2</div>
                             <input
                                 type="file"
                                 onChange={handleImageChange2}
@@ -163,6 +181,7 @@ const AddContribution = () => {
                     </div>
                     <div className="addActivityImage ">
                         <div className="conaddImageLine addactivitypic">
+                            <div className="conaddImagenum">3</div>
                             <input
                                 type="file"
                                 onChange={handleImageChange3}
@@ -179,6 +198,7 @@ const AddContribution = () => {
                             </button>
                         </div>
                         <div className="conaddImageLine addactivitypic">
+                            <div className="conaddImagenum">4</div>
                             <input
                                 type="file"
                                 onChange={handleImageChange4}
@@ -197,6 +217,7 @@ const AddContribution = () => {
                     </div>
                     <div className="addActivityImage addActivityImageLast">
                         <div className="conaddImageLine addactivitypic">
+                            <div className="conaddImagenum">5</div>
                             <input
                                 type="file"
                                 onChange={handleImageChange5}

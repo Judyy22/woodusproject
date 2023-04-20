@@ -83,6 +83,7 @@
     padding: 8px 10px;
     background-color: #ede6db;
     border-radius: 5px;
+    border: none;
 }
 
 .pagination li button:hover,
@@ -98,19 +99,9 @@
     background-color: #baa89a;
     cursor: default;
 }
-.active > .page-link,
-.page-link.active {
-    z-index: 3;
-    color: var(--bs-pagination-active-color);
-    background-color: transparent;
-    border-color: transparent;
-}
-.page-link.active {
+.pageLink.active {
     background-color: #baa89a;
-}
-.page-link.active:focus {
-    background-color: #baa89a;
-    box-shadow: none;
+    color: white;
 }
 /* Pagination.js End */
 /* BoardWrite.js Start */
@@ -240,6 +231,21 @@
     padding: 15px 20px;
     border-radius: 5px;
     min-height: 400px;
+}
+.BoardViewImage {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 50px;
+    margin: 20px 150px;
+}
+
+.BoardViewImage img {
+    width: 100%;
+    height: auto;
+}
+
+.BoardViewImage img:last-child {
+    margin-bottom: 30px;
 }
 
 /* BoardView.js End */

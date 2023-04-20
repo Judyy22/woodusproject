@@ -13,7 +13,7 @@ const BoardWrite = () => {
     const writer = "관리자";
 
     const submitReview = () => {
-        Axios.post("http://woodus.net/notice", {
+        Axios.post("http://woodus.net/api/notice", {
             title: boardContent.title,
             content: boardContent.content,
             writer: writer,

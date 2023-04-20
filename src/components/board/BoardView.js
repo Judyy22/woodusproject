@@ -1,21 +1,25 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { boardAction } from "../../redux/Actions/boardAction";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const BoardView = () => {
-    const dispatch = useDispatch();
-    const { id } = useParams();
-    const boardDetail = useSelector((state) => state.board.noticeDetail);
-    const getBoardDetail = async () => {
-        dispatch(boardAction.getBoardDetail(id));
-    };
+const BoardView = (props) => {
+    const location = useLocation();
+    const [goList, setGoList] = useState();
+    const navigate = useNavigate();
+    const item = props.data;
+    const nowPath = location.pathname;
+    const slicePath = nowPath.split("/").filter(Boolean);
     useEffect(() => {
-        getBoardDetail();
+        if (slicePath[1] == "notice") {
+            setGoList("/community/notice");
+        } else {
+            setGoList("/community");
+        }
     }, []);
+    const clickList = () => {
+        navigate(`${goList}`);
+    };
 
-    const item = boardDetail?.[0];
-    console.log("boardDetail", item);
+    const text = item?.content;
 
     return (
         <div className="BoardViewBox">
@@ -33,9 +37,45 @@ const BoardView = () => {
                 <h3>{item?.title}</h3>
             </div>
             <div className="BoardViewContent">
-                <div>{item?.content}</div>
+                {slicePath[1] == "notice" ? (
+                    <div dangerouslySetInnerHTML={{ __html: text }} />
+                ) : (
+                    <div>{text}</div>
+                )}
+                <div className="BoardViewImage">
+                    {item?.contents1_id ? (
+                        <div>
+                            <img
+                                src={`http://woodus.net/api/images/${item?.contents1_id}`}
+                            />
+                        </div>
+                    ) : null}
+                    {item?.contents2_id ? (
+                        <div>
+                            <img
+                                src={`http://woodus.net/api/images/${item?.contents2_id}`}
+                            />
+                        </div>
+                    ) : null}
+                    {item?.contents3_id ? (
+                        <div>
+                            <img
+                                src={`http://woodus.net/api/images/${item?.contents3_id}`}
+                            />
+                        </div>
+                    ) : null}
+                    {item?.contents4_id ? (
+                        <div>
+                            <img
+                                src={`http://woodus.net/api/images/${item?.contents4_id}`}
+                            />
+                        </div>
+                    ) : null}
+                </div>
             </div>
-            <button className="clientsubmitButton">목록으로</button>
+            <button className="clientsubmitButton" onClick={clickList}>
+                목록으로
+            </button>
         </div>
     );
 };

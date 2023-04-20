@@ -18,14 +18,16 @@ const AddRepair = () => {
     };
 
     const content = contents.replace("\n", "<br/>");
+    const writer = "관리자";
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const title = document.getElementById("title").value;
-        const url = "http://woodus.net/repair";
+        const url = "http://woodus.net/api/repair";
         const data = {
             title: title,
             content: content,
+            writer: writer,
             imageFile_before: imageFile_before,
             imageFile_after: imageFile_after,
         };

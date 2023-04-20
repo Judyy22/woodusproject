@@ -11,6 +11,11 @@
     background-color: #faf7f2;
     min-height: 68.35vh;
 }
+.contributionCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* Contribution.js End */
 /* ConCard Start */
 .concardbox {

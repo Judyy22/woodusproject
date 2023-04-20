@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://woodus.net",
+    baseURL: "http://woodus.net/api",
     headers: { "Content-type": "application/json" },
 });
 

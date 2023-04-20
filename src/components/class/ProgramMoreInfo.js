@@ -36,7 +36,7 @@ const ProgramMoreInfo = (props) => {
             <div className="ProgramDetail">
                 <div className="DetailLeft">
                     <img
-                        src={`http://woodus.net/images/${detail.poster_id}`}
+                        src={`http://woodus.net/api/images/${detail.poster_id}`}
                         width="100%"
                     />
                 </div>

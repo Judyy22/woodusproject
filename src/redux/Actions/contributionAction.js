@@ -27,7 +27,7 @@ function getContributionDetail(con_id) {
 
             let [conDetail] = await Promise.all([conDetailApi]);
             dispatch({
-                type: "GET_CONDETAIL_REQUEST",
+                type: "GET_CONDETAIL_SUCCESS",
                 payload: { conDetail: conDetail.data },
             });
         } catch (error) {

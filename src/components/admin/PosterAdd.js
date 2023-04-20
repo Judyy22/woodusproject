@@ -30,7 +30,7 @@ const PosterAdd = () => {
         const course_id = document.querySelector(
             'select[name="course_id"] option:checked'
         ).value;
-        const url = "http://woodus.net/images/register";
+        const url = "http://woodus.net/api/images/register";
         const data = {
             course_id: course_id,
             imageFile_thumbnail: imageFile_thumbnail,

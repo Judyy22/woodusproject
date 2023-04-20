@@ -2,29 +2,62 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const ConDetail = () => {
+const ConDetail = (props) => {
     const navigate = useNavigate();
     const goList = () => {
         navigate("/contribution");
     };
+
+    const item = props.detail;
+
     return (
         <div className="contributionBox">
             <Container>
                 <div className="conDetailBox">
                     <div className="conDetailTitle">
-                        <div>사진제목</div>
-                        <div>CJ 사회공헌팀 트레이 만들기</div>
+                        <div>{item?.title}</div>
+                        <div>{item?.subtitle}</div>
                     </div>
                     <div className="conDetailDate">
                         <span>작성일</span>
-                        <span>2023-04-18</span>
+                        <span>{item?.regdate}</span>
                     </div>
                     <div className="conDetailImage">
-                        <img src="/pictures/facilities1.jpg" />
-                        {/* <img src="/pictures/facilities1.jpg" />
-                        <img src="/pictures/facilities1.jpg" />
-                        <img src="/pictures/facilities1.jpg" />
-                        <img src="/pictures/facilities1.jpg" /> */}
+                        {item?.contents1_id ? (
+                            <div>
+                                <img
+                                    src={`http://woodus.net/api/images/${item?.contents1_id}`}
+                                />
+                            </div>
+                        ) : null}
+                        {item?.contents2_id ? (
+                            <div>
+                                <img
+                                    src={`http://woodus.net/api/images/${item?.contents2_id}`}
+                                />
+                            </div>
+                        ) : null}
+                        {item?.contents3_id ? (
+                            <div>
+                                <img
+                                    src={`http://woodus.net/api/images/${item?.contents3_id}`}
+                                />
+                            </div>
+                        ) : null}
+                        {item?.contents4_id ? (
+                            <div>
+                                <img
+                                    src={`http://woodus.net/api/images/${item?.contents4_id}`}
+                                />
+                            </div>
+                        ) : null}
+                        {item?.contents5_id ? (
+                            <div>
+                                <img
+                                    src={`http://woodus.net/api/images/${item?.contents5_id}`}
+                                />
+                            </div>
+                        ) : null}
                     </div>
                     <button
                         className="concardbutton conDetailButton"

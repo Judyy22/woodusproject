@@ -308,8 +308,11 @@ input[type="file"] {
 
 .conaddImageLine {
     flex-direction: row;
+    align-items: center;
 }
-
+.conaddImagenum {
+    padding: 5px;
+}
 .postersubmit {
     margin-top: 20px;
     padding: 10px 30px;

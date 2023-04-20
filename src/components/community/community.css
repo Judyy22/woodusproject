@@ -54,6 +54,7 @@
 .noticeBox {
     padding-top: 58px;
     background-color: #faf7f2;
+    min-height: 60.3vh;
 }
 .noticeTitle {
     text-align: center;
