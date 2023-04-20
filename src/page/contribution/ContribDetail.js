@@ -5,6 +5,7 @@ import ConDetail from "../../components/contribution/ConDetail";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { contributionAction } from "../../redux/Actions/contributionAction";
+import Secondmenu from "../../components/Secondmenu";
 
 const ContribDetail = () => {
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const ContribDetail = () => {
     return (
         <div>
             <Menubar />
+            <Secondmenu />
             <ConDetail detail={detail} />
             <Footer />
         </div>

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ConDetail = (props) => {
     const navigate = useNavigate();
     const goList = () => {
-        navigate("/contribution");
+        navigate("/scontribution");
     };
 
     const item = props.detail;

@@ -55,6 +55,8 @@ const Secondmenu = () => {
                 setSelectTitle("모집중");
             }
         } else if (slicePath[0] === "contribution") {
+            setTitle("기업사회공헌");
+            setSelectTitle("상세내용");
         } else if (slicePath[0] === "community") {
             setTitle("커뮤니티");
             setList([
@@ -77,6 +79,7 @@ const Secondmenu = () => {
     const clickList = () => {
         setOpenlist(!openlist);
     };
+    console.log(list);
 
     // 클릭 이벤트가 발생할 때 document에 이벤트를 등록하여 클릭된 요소가 드롭다운 내부 요소가 아닌 경우 드롭다운을 닫습니다.
     useEffect(() => {
@@ -101,23 +104,27 @@ const Secondmenu = () => {
                 <div className="seconMenuSecondTitle">
                     <div className="selectName" onClick={clickList}>
                         {selectTitle}
-                        <div>
-                            <FontAwesomeIcon icon={faAngleDown} />
-                        </div>
+                        {list.length != "0" ? (
+                            <div>
+                                <FontAwesomeIcon icon={faAngleDown} />
+                            </div>
+                        ) : null}
                     </div>
-                    <ul
-                        className={
-                            openlist
-                                ? "secondMenulistbox open"
-                                : "secondMenulistbox"
-                        }
-                    >
-                        {list.map((item) => (
-                            <li key={item.id} className="secondMenulist">
-                                <Link to={item.link}>{item.name}</Link>
-                            </li>
-                        ))}
-                    </ul>
+                    {list.length != "0" ? (
+                        <ul
+                            className={
+                                openlist
+                                    ? "secondMenulistbox open"
+                                    : "secondMenulistbox"
+                            }
+                        >
+                            {list.map((item) => (
+                                <li key={item.id} className="secondMenulist">
+                                    <Link to={item.link}>{item.name}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : null}
                 </div>
             </Container>
         </div>

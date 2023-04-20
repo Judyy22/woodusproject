@@ -38,6 +38,7 @@ const Menubar = () => {
             id: 4,
             name: "기업사회공헌",
             link: "/contribution",
+            dropdown: [{ id: 1, name: "상세내용", link: "/contribution" }],
         },
         {
             id: 5,
